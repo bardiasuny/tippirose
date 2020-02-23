@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "server": "nodemon server",
+    "server": "nodemon index.js",
     "client": "npm start --prefix tippirose-app",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix tippirose-app && npm run build --prefix tippirose-app"
@@ -20,6 +20,7 @@
     "express": "^4.17.1",
     "express-validator": "^6.4.0",
     "firebase": "^7.8.1",
+    "firebase-admin": "^8.9.2",
     "gravatar": "^1.8.0",
     "qrcode.react": "^1.0.0",
     "react-svg": "^11.0.9",
