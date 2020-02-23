@@ -13,12 +13,12 @@
 // };
 
 
-import { initializeApp, credential as _credential } from "firebase-admin";
+var firebaseAdmin = require("firebase-admin");
 
-import serviceAccount from "../tippirose-london-firebase-adminsdk-s0t8m-be83e393dc.json";
+var serviceAccount = require("../tippirose-london-firebase-adminsdk-s0t8m-be83e393dc.json");
 
-const admin = initializeApp({
-  credential: _credential.cert(serviceAccount),
+const admin = firebaseAdmin.initializeApp({
+  credential: firebaseAdmin.credential.cert(serviceAccount),
   databaseURL: "https://tippirose-london.firebaseio.com"
 });
 
@@ -27,4 +27,4 @@ const admin = initializeApp({
 // firebase.initializeApp(firebaseConfig);
 // firebase.firestore();
 
-export default admin;
+module.exports = admin;
