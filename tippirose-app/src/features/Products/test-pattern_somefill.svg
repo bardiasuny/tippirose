@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 2834.65 2834.65" style="enable-background:new 0 0 2834.65 2834.65;" xml:space="preserve">
+	 <defs>
+	 	<pattern id="pattern" x="0" y="0" width="1" height="1" patternContentUnits="objectBoundingBox">
+   			<!-- <rect x="0" y="0" width="1" height="1" fill="skyblue"/>
+   			<rect x="0" y="0" width=".5" height=".5" fill="red"/>
+   			<circle cx=".5" cy=".5" r=".1" fill="blue" fill-opacity="0.5"/> -->
+ 		</pattern>
+         <pattern id="pattern2" x="0" y="0" width="1" height="1" patternContentUnits="objectBoundingBox">
+   			<!-- <rect x="0" y="0" width="1" height="1" fill="skyblue"/>
+   			<rect x="0" y="0" width=".5" height=".5" fill="red"/>
+   			<circle cx=".5" cy=".5" r=".1" fill="blue" fill-opacity="0.5"/> -->
+ 		</pattern>
+	 </defs>
+	<style type="text/css">
+		.st1{
+	
+		stroke:#ffffff00;
+		stroke-miterlimit:1;
+		stroke-width:3;
+		}
+	</style>
+	<rect x="124.22" y="98.83" class="st1" width="286.21" height="286.21" fill="url(#pattern)"/>
+	<rect x="458.7" y="98.83" class="st1" width="286.21" height="286.21" fill="url(#pattern)"/>
+	<rect x="793.18" y="98.83" class="st1" width="286.21" height="286.21" fill="url(#pattern)"/>
+	<rect x="1127.67" y="98.83" class="st1" width="286.21" height="286.21" fill="url(#pattern)"/>
+	<rect x="1462.15" y="98.83" class="st1" width="286.21" height="286.21" fill="url(#pattern2)"/>
+	<rect x="1782.84" y="98.83" class="st1" width="286.21" height="286.21" fill="url(#pattern2)"/>
+	<rect x="2103.53" y="98.83" class="st1" width="286.21" height="286.21" fill="url(#pattern2)"/>
+	<rect x="2424.22" y="98.83" class="st1" width="286.21" height="286.21" fill="url(#pattern2)"/>
+	<rect x="124.22" y="2422.97" class="st1" width="286.21" height="286.21" fill="url(#pattern2)"/>
+	<rect x="458.7" y="2422.97" class="st1" width="286.21" height="286.21" fill="url(#pattern2)"/>
+	<rect x="793.18" y="2422.97" class="st1" width="286.21" height="286.21" fill="url(#pattern2)"/>
+	<rect x="1127.67" y="2422.97" class="st1" width="286.21" height="286.21" fill="url(#pattern)"/>
+	<rect x="1462.15" y="2422.97" class="st1" width="286.21" height="286.21" fill="url(#pattern)"/>
+	<rect x="1782.84" y="2422.97" class="st1" width="286.21" height="286.21" fill="url(#pattern2)"/>
+	<rect x="2103.53" y="2422.97" class="st1" width="286.21" height="286.21" fill="url(#pattern2)"/>
+	<rect x="2424.22" y="2422.97" class="st1" width="286.21" height="286.21" fill="url(#pattern2)"/>
+	<rect x="2424.22" y="2084.56" class="st1" width="286.21" height="286.21" fill="url(#pattern2)"/>
+	<rect x="2424.22" y="1760.43" class="st1" width="286.21" height="286.21" fill="url(#pattern2)"/>
+	<rect x="2424.22" y="1436.29" class="st1" width="286.21" height="286.21" fill="url(#pattern2)"/>
+	<rect x="2424.22" y="1112.15" class="st1" width="286.21" height="286.21" fill="url(#pattern)"/>
+	<rect x="2424.22" y="788.01" class="st1" width="286.21" height="286.21" fill="url(#pattern)"/>
+	<rect x="2424.22" y="463.87" class="st1" width="286.21" height="286.21" fill="url(#pattern)"/>
+	<rect x="124.22" y="2084.56" class="st1" width="286.21" height="286.21"/>
+	<rect x="124.22" y="1760.43" class="st1" width="286.21" height="286.21"/>
+	<rect x="124.22" y="1436.29" class="st1" width="286.21" height="286.21"/>
+	<rect x="124.22" y="1112.15" class="st1" width="286.21" height="286.21"/>
+	<rect x="124.22" y="788.01" class="st1" width="286.21" height="286.21"/>
+	<rect x="124.22" y="463.87" class="st1" width="286.21" height="286.21"/>
+</svg>
