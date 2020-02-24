@@ -1,4 +1,4 @@
-
+import axios from "axios"
 import { toastr } from "react-redux-toastr";
 import { actionTypes } from "redux-firestore";
 import { SubmissionError } from "redux-form";
@@ -110,87 +110,34 @@ export const orderProductMakeVip = (data, product, color, size, pattern, uniqId,
     try {
 
         const user = firebase.auth().currentUser
+        const path = `orders/${uniqId}/${product.productName}-${user.displayName}.png`;
+        const options = {
+            name: product.productName + "-" + user.displayName
+        };
 
+        const design = data
 
-        console.log("color", uniqueUrl)
-
-
-
+        let storageRef = await firebase.storage().ref().child(path).putString(design, 'data_url');
+        let downloadURL = await firebase.storage().ref().child(path).getDownloadURL()
 
         if (user.uid) {
+            const config = {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json;charset=UTF-8'
+                }
 
+            }
+            const date = firestore.FieldValue.serverTimestamp()
+            const secretKey = uuid()
+            const body = JSON.stringify({ downloadURL, product, color, size, pattern, uniqId, uniqueUrl, user, date, secretKey })
+            const res = await axios.post('/user/order-product', body, config)
+            toastr.success("Congrats", res.data)
+        } else {
 
-
-            //const url = `http://localhost:3000/vip/${user.uid}/${uniqueId}`
-
-            const path = `orders/${uniqId}/${product.productName}-${user.displayName}.png`;
-            const options = {
-                name: product.productName + "-" + user.displayName
-            };
-
-            const design = data
-
-            // let UploadedFile = await firebase.uploadFile(path, design, null, options);
-            // let downloadURL = await UploadedFile.uploadTaskSnapshot.ref.getDownloadURL();
-
-            let storageRef = await firebase.storage().ref().child(path).putString(design, 'data_url');
-            let downloadURL = await firebase.storage().ref().child(path).getDownloadURL()
-
-            await firebase.firestore()
-                .collection('orders')
-                .add({
-                    orderDate: firestore.FieldValue.serverTimestamp(),
-                    productID: product.id,
-                    category: product.category,
-                    userId: user.uid,
-                    userName: user.displayName,
-                    userEmail: user.email,
-                    pattern: pattern,
-                    size: size,
-                    color: color,
-                    url: uniqueUrl,
-                    uniqueId: uniqId,
-                    designImgUrl: downloadURL,
-                    secretKey: uuid(),
-                    mainImageUrl: product.mainImageUrl,
-                    price: product.price
-                }).then(async docRef => {
-                    console.log("addedOrder ID :", docRef.id)
-
-                    await firebase.firestore()
-                        .collection('users')
-                        .doc(user.uid)
-                        .collection('userProducts')
-                        .doc(uniqId)
-                        .set({
-                            orderDate: firestore.FieldValue.serverTimestamp(),
-                            productID: product.id,
-                            userId: user.uid,
-                            userName: user.displayName,
-                            userEmail: user.email,
-                            pattern: pattern,
-                            size: size,
-                            color: color,
-                            url: uniqueUrl,
-                            uniqueId: uniqId,
-                            designImgUrl: downloadURL,
-                            mainImageUrl: product.mainImageUrl,
-                            madein: product.madein,
-                            description: product.description,
-                            orderId: docRef.id
-                        })
-
-                    await firebase.firestore()
-                        .collection('users')
-                        .doc(user.uid)
-                        .update({
-                            level: "vip"
-                        })
-
-                })
+            toastr.error("OPSSS", "you should signed in before you can order a product ")
         }
-
-
 
 
     } catch (err) {

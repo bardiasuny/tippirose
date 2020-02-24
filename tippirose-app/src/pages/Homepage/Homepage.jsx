@@ -14,6 +14,8 @@ import GridContainer from "../../components/Grid/GridContainer";
 import Card from "../../components/Card/Card";
 import CardBody from "../../components/Card/CardBody";
 import { Link } from "react-router-dom";
+import NavBar from "components/Nav/MainNavBar/NavBar";
+import MainFooter from "features/Footer/MainFooter";
 
 const style = {};
 
@@ -30,6 +32,7 @@ function Homepage() {
 
   return (
     <Fragment>
+      <NavBar />
       <ModernContainer
         title="HomePage"
         subTitle="Experience the awesomness"
@@ -100,6 +103,7 @@ function Homepage() {
         </div>
       </ModernContainer>
       <SubscribeEmail />
+      <MainFooter />
     </Fragment>
   );
 }

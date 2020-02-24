@@ -73,21 +73,13 @@ const styles = {
 const useStyles = makeStyles(styles)
 
 
-function App({ match, admin, isVip }) {
+function App({ match, admin, isVip, history }) {
   const classes = useStyles();
-
+  console.log(history)
   return (
     <Fragment>
       <div className={classes.wrapper}>
         <ModalManager />
-
-        <div className={classNames(classes.navMainAlign, "background_fade_navBar")}>
-          <div className={classes.navCenter}>
-            <NavBar />
-          </div>
-        </div>
-
-
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route path="/shop" component={Shop} />
@@ -96,7 +88,6 @@ function App({ match, admin, isVip }) {
           {isVip && <Route path="/account/vip/" component={TippiVipDashboard} />}
           {!match.isExact && <Route render={() => <Fragment> <h1>NOT FOUND</h1><Link to="/shop">Shop</Link>- <Link to="/admin">Admin</Link></Fragment>} />}
         </Switch>
-        <MainFooter />
       </div>
     </Fragment >
   );

@@ -15,6 +15,7 @@ import { connect } from "react-redux";
 //Actions
 import { getFavourite } from "../../features/User/userAcrions";
 import Favourites from "features/User/Favourites";
+import MainFooter from "features/Footer/MainFooter";
 
 const mapState = state => ({
   favourites: state.firestore.ordered.favourites
@@ -46,6 +47,7 @@ function Shop({ match, getFavourite, favourites }) {
 
   return (
     <Fragment>
+      <NavBar />
       <Switch>
         <Route
           exact
@@ -72,6 +74,7 @@ function Shop({ match, getFavourite, favourites }) {
           />
         )}
       </Switch>
+      <MainFooter />
     </Fragment>
   );
 }

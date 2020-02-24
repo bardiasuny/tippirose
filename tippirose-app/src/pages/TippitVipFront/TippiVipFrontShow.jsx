@@ -37,8 +37,7 @@ function TippiVipFrontShow({ getTippiVipUserProduct, match }) {
         style={{
           height: 100,
           width: "100%",
-          overflow: "hidden",
-          background: "black"
+          overflow: "hidden"
         }}
       ></div>
       <div className="center_component flex_column">
@@ -46,8 +45,8 @@ function TippiVipFrontShow({ getTippiVipUserProduct, match }) {
         <br />
         <br />
         <br />
-        <img style={{ width: "300px" }} src={product.mainImageUrl} />
-        <h2>{product.userEmail}</h2>
+        <img style={{ width: "300px" }} src={product && product.mainImageUrl} />
+        <h2>{product && product.userEmail}</h2>
       </div>
     </Fragment>
   );

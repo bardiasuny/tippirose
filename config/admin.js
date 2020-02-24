@@ -19,7 +19,8 @@ var serviceAccount = require("../tippirose-london-firebase-adminsdk-s0t8m-be83e3
 
 const admin = firebaseAdmin.initializeApp({
   credential: firebaseAdmin.credential.cert(serviceAccount),
-  databaseURL: "https://tippirose-london.firebaseio.com"
+  databaseURL: "https://tippirose-london.firebaseio.com",
+  storageBucket: "tippirose-london.appspot.com",
 });
 
 

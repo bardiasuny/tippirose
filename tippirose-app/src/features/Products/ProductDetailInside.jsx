@@ -47,13 +47,8 @@ import { connect } from "react-redux";
 
 import "../../../node_modules/react-image-gallery/styles/css/image-gallery.css";
 
-import { getProductImagesWithCat } from "../../pages/Admin/Product/productActions";
 import PatternMaker from "./PatternMaker";
 import { Link } from "react-router-dom";
-
-const actions = {
-  getProductImagesWithCat
-};
 
 const useStyles = makeStyles(productStyle);
 

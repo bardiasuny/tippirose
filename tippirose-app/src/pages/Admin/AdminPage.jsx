@@ -20,6 +20,7 @@ export default function LoggedOutNav() {
   const headerImage = require("../../assets/img/bg2.jpg");
   return (
     <Fragment>
+      <NavBar />
       <div
         style={{
           height: 100,

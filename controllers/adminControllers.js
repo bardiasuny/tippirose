@@ -1,9 +1,9 @@
 
 //api =>  /admin/add-product
 const admin = require('../config/admin')
-
 const firebase = require('../config/firebase')
 
+//ADD PRODUCT BY PROVIDING  ---productID and ---Category
 exports.postAddProduct = async (req, res, next) => {
     console.log(req.body)
 
@@ -131,3 +131,53 @@ exports.postAddProduct = async (req, res, next) => {
 
     res.send('Success')
 }
+
+//GETTING ONE PRODUCT BY PROVIDING  ---productID and ---Category
+exports.postGetProduct = async (req, res, next) => {
+
+    const { category, productID } = req.body
+
+    const queryProduct = await firebase.firestore()
+        .collection('products')
+        .doc(category)
+        .collection('products')
+        .doc(productID)
+        .get()
+
+    const product = queryProduct.data()
+
+    res.send(product)
+
+}
+
+
+//GETTING ONE PRODUCT IMAGES BY PROVIDING  ---productID and ---Category
+exports.postGetProductImages = async (req, res, next) => {
+
+    const { category, productID } = req.body
+
+    let imagesCollection = []
+
+
+    const productImages = await firebase.firestore()
+        .collection('products')
+        .doc(category)
+        .collection('products')
+        .doc(productID)
+        .collection('photos')
+        .orderBy('name')
+        .get()
+
+
+
+
+    for (let i = 0; i < productImages.docs.length; i++) {
+        const productImage = productImages.docs[i].data()
+        imagesCollection.push({ original: productImage.url, thumbnail: productImage.url, color: productImage.color, pattern: productImage.pattern })
+    }
+
+    res.send(imagesCollection)
+
+}
+
+
