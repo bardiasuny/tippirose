@@ -1,5 +1,5 @@
 import { createReducer } from "../../../app/util/reducerUtils";
-import { FETCH_PRODUCT, FETCH_PRODUCT_IMAGES, FETCH_PRODUCT_PATTERNS, FETCH_PRODUCT_VIP_DASHBOARD } from "./productConstants"
+import { FETCH_PRODUCT, FETCH_PRODUCT_IMAGES, FETCH_PRODUCT_PATTERNS, FETCH_PRODUCT_VIP_DASHBOARD, FETCH_SCANNED_PRODUCT } from "./productConstants"
 
 const initialState = {
     product: [],
@@ -40,10 +40,18 @@ const fetchProductVipDashboard = (state, payload) => {
     }
 }
 
+const fetchScannedProduct = (state, payload) => {
+    return {
+        ...state,
+        scannedProduct: payload
+    }
+}
+
 
 export default createReducer(initialState, {
     [FETCH_PRODUCT]: fetchProduct,
     [FETCH_PRODUCT_IMAGES]: fetchProductImages,
     [FETCH_PRODUCT_PATTERNS]: fetchProductPatterns,
-    [FETCH_PRODUCT_VIP_DASHBOARD]: fetchProductVipDashboard
+    [FETCH_PRODUCT_VIP_DASHBOARD]: fetchProductVipDashboard,
+    [FETCH_SCANNED_PRODUCT]: fetchScannedProduct
 })

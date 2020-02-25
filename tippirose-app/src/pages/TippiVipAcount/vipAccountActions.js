@@ -1,7 +1,11 @@
 import { FETCH_PRODUCT_VIP_DASHBOARD } from "../Admin/Product/productConstants"
+import { FETCH_ALL_TEMPLATES } from "./vipConstants"
+import axios from "axios"
+import { toastr } from "react-redux-toastr";
 
 
-export const getTippiVipUserProduct = (userId, uniqueId) => async (
+
+export const getTippiVipUserProducts = (userId, uniqueId) => async (
     dispatch,
     getState,
     { getFirebase, getFirestore }
@@ -12,21 +16,92 @@ export const getTippiVipUserProduct = (userId, uniqueId) => async (
     try {
 
         const user = firebase.auth().currentUser
-        let allUserProducts = []
-        const vipUserProductQuery = await firebase.firestore()
-            .collection('users')
-            .doc(user.uid)
-            .collection('userProducts')
-            .get()
 
-        for (let i = 0; i < vipUserProductQuery.docs.length; i++) {
-            const products = vipUserProductQuery.docs[i].data()
-            allUserProducts.push(products)
+        if (user.uid) {
+            const config = {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json;charset=UTF-8'
+                }
+
+            }
+            const data = JSON.stringify({ user })
+            const res = await axios.post('/account/get-vip-user-products', data, config)
+            dispatch({ type: FETCH_PRODUCT_VIP_DASHBOARD, payload: res.data })
         }
-
-        dispatch({ type: FETCH_PRODUCT_VIP_DASHBOARD, payload: allUserProducts })
 
     } catch (err) {
         console.log(err)
     }
+}
+
+export const getTippiVipAllTemplates = () => async (
+    dispatch,
+    getState,
+    { getFirebase, getFirestore }
+) => {
+    const firebase = getFirebase();
+    const firestore = getFirestore();
+
+    try {
+
+        const user = firebase.auth().currentUser
+
+        if (user.uid) {
+            const config = {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json;charset=UTF-8'
+                }
+
+            }
+            const data = JSON.stringify({ user })
+
+            const res = await axios.post('/account/fetch-all-templates', data, config)
+
+
+            dispatch({ type: FETCH_ALL_TEMPLATES, payload: res.data })
+        }
+
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+
+export const assignVipTemplate = (template, product) => async (
+    dispatch,
+    getState,
+    { getFirebase, getFirestore }
+) => {
+    const firebase = getFirebase();
+    const firestore = getFirestore();
+    try {
+
+        const user = firebase.auth().currentUser
+
+        if (user.uid) {
+            const config = {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json;charset=UTF-8'
+                }
+
+            }
+            const data = JSON.stringify({ user, template, product })
+
+            const res = await axios.post('/account/assign-vip-template', data, config)
+            if (res.data === 'success') {
+                toastr.success("success", "you have successfuly changes this product`s theme")
+            }
+            dispatch(getTippiVipUserProducts())
+        }
+
+    } catch (err) {
+        console.log(err)
+    }
+
 }

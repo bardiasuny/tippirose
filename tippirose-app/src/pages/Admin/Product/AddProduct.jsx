@@ -283,11 +283,11 @@ function AddProduct({
           placeholder="Gender"
           value="category"
         />
-        {/* <SelectProductPaterns
+        <SelectProductPaterns
           patterns={patterns}
           handlePattern={handlePattern}
           productPatterns={productPatterns}
-        /> */}
+        />
 
         <div className="p4">
           <PhotoInput setImages={setImages} images={allImages} />

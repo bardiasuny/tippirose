@@ -75,7 +75,6 @@ const useStyles = makeStyles(styles)
 
 function App({ match, admin, isVip, history }) {
   const classes = useStyles();
-  console.log(history)
   return (
     <Fragment>
       <div className={classes.wrapper}>
@@ -83,7 +82,7 @@ function App({ match, admin, isVip, history }) {
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route path="/shop" component={Shop} />
-          <Route path="/vip/:uid/:upId" component={TippiVipFrontShow} />
+          <Route path="/vip/:upId" component={TippiVipFrontShow} />
           {admin && <Route path="/admin" component={Admin} />}
           {isVip && <Route path="/account/vip/" component={TippiVipDashboard} />}
           {!match.isExact && <Route render={() => <Fragment> <h1>NOT FOUND</h1><Link to="/shop">Shop</Link>- <Link to="/admin">Admin</Link></Fragment>} />}

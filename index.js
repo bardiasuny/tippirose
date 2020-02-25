@@ -13,11 +13,12 @@ app.use(cors());
 const adminRoutes = require('./routes/adminRoutes')
 const userRoutes = require('./routes/userRouthes')
 const vipRoutes = require('./routes/vipRoutes')
-
+const accountRoutes = require('./routes/accountRoutes')
 
 app.use('/admin', adminRoutes.routes)
 app.use('/user', userRoutes.routes)
 app.use('/vip', vipRoutes.routes)
+app.use('/account', accountRoutes.routes)
 
 
 if (process.env.NODE_ENV === 'production') {

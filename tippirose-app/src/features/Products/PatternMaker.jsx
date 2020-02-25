@@ -51,9 +51,9 @@ function PatternMaker({
         doc: selectedPattern
       });
     };
-    const uniqueId = `${product.id}-${auth.uid}-${uuid()}`;
+    const uniqueId = `${product.id}-${uuid()}`;
     setUniqId(uniqueId);
-    const qrUrl = `http://192.168.1.64:3000/vip/${auth.uid}/${uniqueId}`;
+    const qrUrl = `http://192.168.1.64:3000/vip/${uniqueId}`;
     setUniqUrl(qrUrl);
 
     getTemplate();

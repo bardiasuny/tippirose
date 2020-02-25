@@ -9,6 +9,7 @@ import { reducer as ToastrReducer } from "react-redux-toastr";
 import modalReducer from "../../features/Modals/modalReducer"
 import productReducer from "../../pages/Admin/Product/productReducer"
 import asyncReducer from "../../features/async/asyncReducer"
+import vipReducer from "../../pages/TippiVipAcount/vipReducer"
 
 const appReducer = combineReducers({
   firebase: firebaseReducer,
@@ -17,7 +18,8 @@ const appReducer = combineReducers({
   modals: modalReducer,
   toastr: ToastrReducer,
   product: productReducer,
-  async: asyncReducer
+  async: asyncReducer,
+  vip: vipReducer
 
 });
 const rootReducer = (state, action) => {
