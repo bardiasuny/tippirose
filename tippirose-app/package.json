@@ -30,7 +30,7 @@
     "react-dom": "^16.12.0",
     "react-dropzone": "^10.2.1",
     "react-image-gallery": "^1.0.6",
-    "react-list-drag-and-drop": "https://github.com/Bradblooms/react-list-drag-and-drop/tarball/master",
+    "react-list-drag-and-drop": "https://github.com/Bradblooms/react-list-drag-and-drop/tarball/dependabot/npm_and_yarn/handlebars-4.5.3",
     "react-redux": "^5.1.2",
     "react-redux-firebase": "^2.5.0",
     "react-redux-toastr": "^7.6.4",
