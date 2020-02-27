@@ -49,32 +49,60 @@ function TippiVipFrontShow({
     };
     getShow();
   }, []);
+  console.log(template.linkBg);
 
   if (loading) return <h1>Loading</h1>;
   return (
     <Fragment>
-      <div className="center_component flex_column">
+      <div
+        className="center_component flex_column"
+        style={{
+          background: `${template.bgColor}`,
+          height: "100vh",
+          justifyContent: "flex-start"
+        }}
+      >
         {product && product.active ? (
           <Fragment>
             {product && product.template ? (
               <Fragment>
+                <div className="vip_show_header">
+                  <div>
+                    {template.img ? (
+                      <img src="" alt="profile pic" />
+                    ) : (
+                      <div className="vip_show_no_avatar">B</div>
+                    )}
+                  </div>
+                  <div
+                    className="ph2 center_component"
+                    style={{ color: `${template.textColor}` }}
+                  >
+                    {product.userName.toUpperCase()}
+                  </div>
+                </div>
                 <div
                   style={{
                     width: "100%",
-                    height: "100vh",
-                    background: `${template.bgColor}`
+                    height: "60vh"
                   }}
                   className="center_component flex_column"
                 >
                   {template &&
                     template.links.map(link => (
                       <Fragment>
-                        <p style={{ color: `${template.textColor}` }}>
-                          {link.name}
-                        </p>
-                        <a href={link.link} target="_blank">
-                          {link.link}
-                        </a>
+                        <div
+                          style={{
+                            background: `${template.linkBackground}`
+                          }}
+                          className="vip_show_Links"
+                        >
+                          <a href={link.link} target="_blank">
+                            <p style={{ color: `${template.textColor}` }}>
+                              {link.name}
+                            </p>
+                          </a>
+                        </div>
                       </Fragment>
                     ))}
                 </div>

@@ -22,6 +22,8 @@ import MainFooter from './features/Footer/MainFooter'
 import { connect } from 'react-redux';
 import TippiVipFrontShow from 'pages/TippitVipFront/TippiVipFrontShow';
 import TippiVipDashboard from 'pages/TippiVipAcount/TippiVipDashboard';
+import TippiMyProfile from 'pages/TippiVipAcount/TippiMyProfile';
+import TippiManageProfile from 'pages/TippiVipAcount/TippiManageProfile';
 
 const mapState = state => ({
   admin: state.firebase.profile.role === "admin",
@@ -84,7 +86,11 @@ function App({ match, admin, isVip, history }) {
           <Route path="/shop" component={Shop} />
           <Route path="/vip/:upId" component={TippiVipFrontShow} />
           {admin && <Route path="/admin" component={Admin} />}
-          {isVip && <Route path="/account/vip/" component={TippiVipDashboard} />}
+          {isVip && <Route exact path="/account/vip/" component={TippiVipDashboard} />}
+          {isVip && <Route exact path="/account/vip/my-products" component={TippiVipDashboard} />}
+          {isVip && <Route exact path="/account/vip/profiles" component={TippiMyProfile} />}
+          {isVip && <Route exact path="/account/vip/profiles/manage" component={TippiManageProfile} />}
+          {isVip && <Route path="/account/vip/profiles/manage/:profile" component={TippiManageProfile} />}
           {!match.isExact && <Route render={() => <Fragment> <h1>NOT FOUND</h1><Link to="/shop">Shop</Link>- <Link to="/admin">Admin</Link></Fragment>} />}
         </Switch>
       </div>

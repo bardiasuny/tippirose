@@ -133,3 +133,20 @@ exports.postActivateProduct = async (req, res, next) => {
 }
 
 
+exports.postGetUserTemplate = async (req, res, next) => {
+
+    const { template, userId } = req.body
+
+    const userTemplateQuery = await firebase.firestore()
+        .collection('users')
+        .doc(userId)
+        .collection('templates')
+        .doc(template)
+        .get()
+
+    const userTemplate = userTemplateQuery.data()
+
+    res.send(userTemplate)
+
+
+}

@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import Button from "components/CustomButtons/Button";
 import AddIcon from "@material-ui/icons/Add";
 
-function AddTemplateButton() {
+function AddProfileButton() {
   return (
     <Fragment>
-      <Link to="/">
-        ADD/EDIT TEMPLATE{" "}
+      <Link to="/account/vip/profiles">
+        ADD/EDIT PROFILES{" "}
         <Button justIcon round color="success">
           <AddIcon />
         </Button>
@@ -15,4 +15,4 @@ function AddTemplateButton() {
     </Fragment>
   );
 }
-export default AddTemplateButton;
+export default AddProfileButton;

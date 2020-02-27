@@ -16,7 +16,7 @@ import Button from "components/CustomButtons/Button";
 import MyProducts from "./components/MyProducts";
 import { text } from "body-parser";
 import { Container } from "@material-ui/core";
-import AddTemplateButton from "./components/AddTemplateButton";
+import AddProfileButton from "./components/AddProfileButton";
 const style = {};
 
 const useStyles = makeStyles(style);
@@ -62,7 +62,7 @@ function TippiVipDashboard({
           <h1>My Products</h1>
         </div>
         <div style={{ textAlign: "right" }}>
-          <AddTemplateButton />
+          <AddProfileButton />
         </div>
         <div className="page_wrapper">
           <div className="grid_4_main_wrapper">
