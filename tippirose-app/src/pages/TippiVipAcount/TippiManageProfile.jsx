@@ -8,19 +8,33 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { getUserTemplate } from "./vipAccountActions";
 import { ItemContent } from "semantic-ui-react";
-import { TextField } from "@material-ui/core";
+import { TextField, Button } from "@material-ui/core";
 import RLDD from "react-list-drag-and-drop/lib/RLDD";
+import Column from "./components/Column";
+import uuid from "uuid/v4";
+
+import { DragDropContext } from "react-beautiful-dnd";
+import Loading from "../../components/Loading/Loading";
 
 const actions = {
   getUserTemplate
 };
 
 const mapState = state => ({
-  profile: state.vip.productTemplate
+  profile: state.vip.productTemplate,
+  loading: state.async.loading
 });
 
-function TippiManageProfile({ getUserTemplate, match, profile }) {
+function TippiManageProfile({ getUserTemplate, match, profile, loading }) {
   const [profileLinkState, setProfileLinkState] = useState([]);
+  const [isEdit, setIsEdit] = useState(false);
+  const [save, setSave] = useState(false);
+
+  const [stateLoading, setStateLoading] = useState(true);
+
+  useEffect(() => {
+    setStateLoading(loading);
+  }, [loading]);
 
   useEffect(() => {
     const template = match.params.profile;
@@ -30,28 +44,35 @@ function TippiManageProfile({ getUserTemplate, match, profile }) {
     };
     get();
   }, []);
+
   useEffect(() => {
     setProfileLinkState(profile.links);
   }, [profile]);
 
-  console.log(profileLinkState);
+  useEffect(() => {
+    if (profileLinkState && profileLinkState === profile.links) {
+      setSave(false);
+      return;
+    } else {
+      setSave(true);
+    }
+  }, [profileLinkState]);
+
   const handleLinkChange = (e, i) => {
-    //console.log("item", item);
     const items = [...profileLinkState];
 
     const item = items[i];
-    console.log(item);
+
     item[e.target.name] = e.target.value;
     items[i] = item;
     setProfileLinkState(items);
   };
 
   const handleAddLink = () => {
-    const items = [
-      ...profileLinkState,
-      { id: Math.random(), link: "", name: "" }
-    ];
-    setProfileLinkState(items);
+    console.log("here");
+    const item = [...profileLinkState, { id: `${uuid()}`, link: "", name: "" }];
+    console.log(item);
+    setProfileLinkState(item);
   };
   const handleDeleteLink = i => {
     const items = [...profileLinkState];
@@ -61,48 +82,31 @@ function TippiManageProfile({ getUserTemplate, match, profile }) {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(profileLinkState);
   };
 
-  const handleRLDDChange = newItems => {
-    setProfileLinkState(newItems);
+  const handleRLDDChange = result => {
+    const { destination, source, draggableId } = result;
+
+    if (!destination) {
+      return;
+    }
+
+    if (
+      destination.droppableId === source.droppableId &&
+      destination.index === source.index
+    ) {
+      return;
+    }
+    const newLinks = [...profileLinkState];
+
+    const target = newLinks[source.index];
+    newLinks.splice(source.index, 1);
+    newLinks.splice(destination.index, 0, target);
+
+    setProfileLinkState(newLinks);
   };
 
-  const LinkToRender = (link, i) => {
-    return (
-      <div key={i} className="inputs_wrapper">
-        <div className="input_field">
-          <div className="input_form_item">
-            <TextField
-              variant="outlined"
-              value={link.name}
-              placeholder="Titel"
-              name="name"
-              onChange={e => handleLinkChange(e, i)}
-            />
-          </div>
-        </div>
-        <br />
-        <div className="input_field">
-          <div className="input_form_item">
-            <TextField
-              variant="outlined"
-              placeholder="http://url"
-              value={link.link}
-              name="link"
-              onChange={e => handleLinkChange(e, i)}
-            />
-          </div>
-        </div>
-        <br />
-        <button onClick={() => handleDeleteLink(i)}>Delete</button>
-        <br />
-        <br />
-      </div>
-    );
-  };
-
-  console.log(profileLinkState && profileLinkState.length);
+  if (stateLoading) return <Loading />;
   return (
     <Fragment>
       <NavBar />
@@ -116,27 +120,26 @@ function TippiManageProfile({ getUserTemplate, match, profile }) {
       ></div>
       <div className=" p4 flex_column">
         <h1>Manage Profile</h1>
-        {/* <input
-          type="text"
-          value={profileState.linkBackground}
-          onChange={e =>
-            setProfileState({ ...profileState, linkBackground: e.target.value })
-          }
-        /> */}
-
-        <button onClick={() => handleAddLink()}>add</button>
-        <form onSubmit={handleSubmit}>
-          <RLDD
-            items={
-              profileLinkState && profileLinkState.length > 0
-                ? profileLinkState
-                : []
-            }
-            itemRenderer={LinkToRender}
-            onChange={handleRLDDChange}
+        <DragDropContext onDragEnd={handleRLDDChange}>
+          <Column
+            links={profileLinkState}
+            handleDeleteLink={handleDeleteLink}
+            handleLinkChange={handleLinkChange}
           />
-          <button type="submit">submit</button>
-        </form>
+        </DragDropContext>
+
+        <Button onClick={() => handleAddLink()}>add</Button>
+
+        <Button
+          style={{
+            background: `${save ? "green" : "white"}`,
+            color: `${save ? "white" : "black"}`
+          }}
+          onClick={handleSubmit}
+          type="submit"
+        >
+          SAVE
+        </Button>
       </div>
     </Fragment>
   );

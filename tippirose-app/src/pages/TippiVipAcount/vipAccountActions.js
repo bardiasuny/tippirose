@@ -1,5 +1,12 @@
+
+import {
+    asyncActionStart,
+    asyncActionFinish,
+    asyncActionError
+} from "../../features/async/asyncActions";
 import { FETCH_PRODUCT_VIP_DASHBOARD } from "../Admin/Product/productConstants"
 import { FETCH_ALL_TEMPLATES, FETCH_PRODUCT_TEMPLATE } from "./vipConstants"
+
 import axios from "axios"
 import { toastr } from "react-redux-toastr";
 
@@ -45,7 +52,7 @@ export const getTippiVipAllTemplates = () => async (
     const firestore = getFirestore();
 
     try {
-
+        dispatch(asyncActionStart())
         const user = firebase.auth().currentUser
 
         if (user.uid) {
@@ -63,10 +70,12 @@ export const getTippiVipAllTemplates = () => async (
 
 
             dispatch({ type: FETCH_ALL_TEMPLATES, payload: res.data })
+            dispatch(asyncActionFinish())
         }
 
     } catch (err) {
         console.log(err)
+        dispatch(asyncActionError())
     }
 }
 
@@ -76,6 +85,7 @@ export const assignVipTemplate = (template, product) => async (
     getState,
     { getFirebase, getFirestore }
 ) => {
+    dispatch(asyncActionStart())
     const firebase = getFirebase();
     const firestore = getFirestore();
     try {
@@ -99,9 +109,10 @@ export const assignVipTemplate = (template, product) => async (
             }
             dispatch(getTippiVipUserProducts())
         }
-
+        dispatch(asyncActionFinish())
     } catch (err) {
         console.log(err)
+        dispatch(asyncActionError())
     }
 
 }
@@ -111,12 +122,13 @@ export const getUserTemplate = (template) => async (
     getState,
     { getFirebase, getFirestore }
 ) => {
+    dispatch(asyncActionStart())
     const firebase = getFirebase();
     const firestore = getFirestore();
 
     try {
         const userId = firebase.auth().currentUser.uid
-        console.log(template)
+
         const config = {
             method: 'POST',
             headers: {
@@ -130,9 +142,10 @@ export const getUserTemplate = (template) => async (
 
 
         dispatch({ type: FETCH_PRODUCT_TEMPLATE, payload: res.data })
-
+        dispatch(asyncActionFinish())
 
     } catch (err) {
         console.log(err)
+        dispatch(asyncActionError())
     }
 }
