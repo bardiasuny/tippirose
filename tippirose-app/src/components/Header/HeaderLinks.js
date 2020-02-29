@@ -194,9 +194,9 @@ export default function HeaderLinks(props) {
             <Link to="/about-us" className={classes.dropdownLink}>
               <AccountBalance className={classes.dropdownIcons} /> About Us
             </Link>,
-            <Link onClick={() => logout(history)} className={classes.dropdownLink}>
+            <div onClick={() => logout(history)} className={classes.dropdownLink}>
               <ArtTrack className={classes.dropdownIcons} /> Logout
-            </Link>,
+            </div>,
             <Link onClick={() => logout(history)} className={classes.dropdownLink}>
               <ArtTrack className={classes.dropdownIcons} /> Logout
           </Link>,

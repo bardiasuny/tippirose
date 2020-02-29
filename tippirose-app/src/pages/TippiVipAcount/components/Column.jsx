@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from "react";
 import Links from "./Links";
 import { Droppable } from "react-beautiful-dnd";
 
-function Column({ links, handleDeleteLink, handleLinkChange }) {
+function Column({ links, handleDeleteLink, handleLinkChange, error }) {
   return (
     <Fragment>
       <Droppable droppableId="Links-droppable">
@@ -16,6 +16,7 @@ function Column({ links, handleDeleteLink, handleLinkChange }) {
                   key={link.id}
                   handleDeleteLink={handleDeleteLink}
                   handleLinkChange={handleLinkChange}
+                  error={error}
                 />
               ))}
             {provided.placeholder}

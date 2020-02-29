@@ -32,6 +32,8 @@ function TippiManageProfile({ getUserTemplate, match, profile, loading }) {
 
   const [stateLoading, setStateLoading] = useState(true);
 
+  const [error, setError] = useState([]);
+
   useEffect(() => {
     setStateLoading(loading);
   }, [loading]);
@@ -66,6 +68,17 @@ function TippiManageProfile({ getUserTemplate, match, profile, loading }) {
     item[e.target.name] = e.target.value;
     items[i] = item;
     setProfileLinkState(items);
+    let insideErrors = [];
+    for (let i = 0; i < items.length; i++) {
+      setError([]);
+      const link = items[i];
+
+      if (link.name === "" || link.link === "") {
+        insideErrors = [...insideErrors, link.id];
+        console.log("please fille the fields", link.id);
+      }
+    }
+    setError(insideErrors);
   };
 
   const handleAddLink = () => {
@@ -82,6 +95,18 @@ function TippiManageProfile({ getUserTemplate, match, profile, loading }) {
 
   const handleSubmit = e => {
     e.preventDefault();
+    let insideErrors = [];
+    for (let i = 0; i < profileLinkState.length; i++) {
+      setError([]);
+      const link = profileLinkState[i];
+
+      if (link.name === "" || link.link === "") {
+        insideErrors = [...insideErrors, link.id];
+        console.log("please fille the fields", link.id);
+      }
+    }
+    setError(insideErrors);
+    console.log(profileLinkState);
   };
 
   const handleRLDDChange = result => {
@@ -118,28 +143,38 @@ function TippiManageProfile({ getUserTemplate, match, profile, loading }) {
           background: "black"
         }}
       ></div>
-      <div className=" p4 flex_column">
-        <h1>Manage Profile</h1>
-        <DragDropContext onDragEnd={handleRLDDChange}>
-          <Column
-            links={profileLinkState}
-            handleDeleteLink={handleDeleteLink}
-            handleLinkChange={handleLinkChange}
-          />
-        </DragDropContext>
+      <div className="manage_profile_page_wrapper">
+        <div className=" p4  manage_profile_links_wrapper">
+          <div>
+            <div
+              className="edit_links_add_button"
+              onClick={() => handleAddLink()}
+            >
+              + ADD NEW LINK
+            </div>
+          </div>
+          <DragDropContext onDragEnd={handleRLDDChange}>
+            <Column
+              links={profileLinkState}
+              handleDeleteLink={handleDeleteLink}
+              handleLinkChange={handleLinkChange}
+              error={error}
+            />
+          </DragDropContext>
 
-        <Button onClick={() => handleAddLink()}>add</Button>
-
-        <Button
-          style={{
-            background: `${save ? "green" : "white"}`,
-            color: `${save ? "white" : "black"}`
-          }}
-          onClick={handleSubmit}
-          type="submit"
-        >
-          SAVE
-        </Button>
+          <div className="center_component">
+            <div
+              onClick={save && error.length === 0 && handleSubmit}
+              className={`manage_profile_save_button ${
+                save && error.length === 0
+                  ? "button_active"
+                  : "button_dissabled"
+              }`}
+            >
+              SAVE
+            </div>
+          </div>
+        </div>
       </div>
     </Fragment>
   );
