@@ -53,10 +53,6 @@ export const activateProduct = (product, userData, user) => async (
     const firestore = getFirestore();
 
     try {
-
-
-
-
         const config = {
             method: 'POST',
             headers: {
@@ -80,3 +76,32 @@ export const activateProduct = (product, userData, user) => async (
     }
 }
 
+
+export const addLinkViewCount = (newLinks, profileName) => async (
+    dispatch,
+    getState,
+    { getFirebase, getFirestore }
+) => {
+    const firebase = getFirebase();
+    const firestore = getFirestore();
+
+    try {
+        const userId = firebase.auth().currentUser.uid
+        const config = {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json;charset=UTF-8'
+            }
+
+        }
+        const data = JSON.stringify({ newLinks, userId, profileName })
+        const res = await axios.post('/vip/add-links-view-count', data, config)
+
+        // dispatch({ type: FETCH_PRODUCT_VIP_DASHBOARD, payload: res.data })
+
+
+    } catch (err) {
+        console.log(err)
+    }
+}

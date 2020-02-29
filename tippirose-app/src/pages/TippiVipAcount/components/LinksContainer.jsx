@@ -3,10 +3,11 @@ import PropTypes from "prop-types";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-import { TextField } from "@material-ui/core";
+import { TextField, FormControlLabel, Switch } from "@material-ui/core";
 import Button from "components/CustomButtons/Button";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import DeleteIcon from "@material-ui/icons/Delete";
+import IOSSwitch from "../../../components/CustomSwitch/IOSSwitch";
 const style = {};
 
 const useStyles = makeStyles(style);
@@ -65,15 +66,31 @@ function LinksContainer({
             />
             <br />
           </form>
-
+          <div className="edit_link_error_message">
+            {error.includes(link.id) && (
+              <p style={{ color: "red" }}>please fill out the fields</p>
+            )}
+            <p>Number of Click: {link.visited}</p>
+          </div>
+        </div>
+        <div className="edit_links_right_actions">
+          <div>
+            <FormControlLabel
+              control={
+                <IOSSwitch
+                  name="visible"
+                  checked={link.visible}
+                  onChange={e => handleLinkChange(e, i)}
+                  color="green"
+                />
+              }
+            />
+          </div>
           <div class="edit_links_delete">
             <div onClick={() => handleDeleteLink(i)}>
               <DeleteIcon className="edit_links_delete_icon" />
             </div>
           </div>
-          {error.includes(link.id) && (
-            <p style={{ color: "red" }}>please fill out the fields</p>
-          )}
         </div>
       </div>
     </Fragment>

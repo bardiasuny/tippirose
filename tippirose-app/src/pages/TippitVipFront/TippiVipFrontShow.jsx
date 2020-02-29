@@ -6,13 +6,14 @@ import { makeStyles } from "@material-ui/core/styles";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 
-import { getTippiVipUserProduct } from "./tippiVipActions";
+import { getTippiVipUserProduct, addLinkViewCount } from "./tippiVipActions";
 import productReducer from "pages/Admin/Product/productReducer";
 
 import TippiProductActivation from "./TippiProductActivation";
 import { Button, Container } from "@material-ui/core";
 
 import { openModal, closeModal } from "../../features/Modals/modalActions";
+import Loading from "components/Loading/Loading";
 
 const style = {};
 
@@ -28,7 +29,8 @@ const mapState = state => ({
 
 const actions = {
   getTippiVipUserProduct,
-  openModal
+  openModal,
+  addLinkViewCount
 };
 
 function TippiVipFrontShow({
@@ -39,7 +41,8 @@ function TippiVipFrontShow({
   profile,
   loading,
   product,
-  template
+  template,
+  addLinkViewCount
 }) {
   const classes = useStyles();
 
@@ -51,7 +54,15 @@ function TippiVipFrontShow({
   }, []);
   console.log(template.linkBg);
 
-  if (loading) return <h1>Loading</h1>;
+  const handleAddLinkViewCount = async index => {
+    const newLinks = [...template.links];
+    const visitedLink = newLinks[index];
+    visitedLink.visited = visitedLink.visited + 1;
+    newLinks[index] = visitedLink;
+    await addLinkViewCount(newLinks, template.name);
+  };
+
+  if (loading) return <Loading />;
   return (
     <Fragment>
       <div
@@ -89,20 +100,23 @@ function TippiVipFrontShow({
                   className="center_component flex_column"
                 >
                   {template &&
-                    template.links.map(link => (
+                    template.links.map((link, index) => (
                       <Fragment>
-                        <div
-                          style={{
-                            background: `${template.linkBackground}`
-                          }}
-                          className="vip_show_Links"
-                        >
-                          <a href={link.link} target="_blank">
-                            <p style={{ color: `${template.textColor}` }}>
-                              {link.name}
-                            </p>
-                          </a>
-                        </div>
+                        {link.visible && (
+                          <div
+                            style={{
+                              background: `${template.linkBackground}`
+                            }}
+                            className="vip_show_Links"
+                            onClick={() => handleAddLinkViewCount(index)}
+                          >
+                            <a href={link.link} target="_blank">
+                              <p style={{ color: `${template.textColor}` }}>
+                                {link.name}
+                              </p>
+                            </a>
+                          </div>
+                        )}
                       </Fragment>
                     ))}
                 </div>

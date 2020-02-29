@@ -149,3 +149,37 @@ export const getUserTemplate = (template) => async (
         dispatch(asyncActionError())
     }
 }
+
+
+export const setProfileLinks = (profileName, profileLinkState, profileState) => async (
+    dispatch,
+    getState,
+    { getFirebase, getFirestore }
+) => {
+    dispatch(asyncActionStart())
+    const firebase = getFirebase();
+    const firestore = getFirestore();
+
+    try {
+        const userId = firebase.auth().currentUser.uid
+
+        const config = {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json;charset=UTF-8'
+            }
+
+        }
+        const data = JSON.stringify({ userId, profileName, profileLinkState, profileState })
+        const res = await axios.post('/account/set-profile-links', data, config)
+
+
+        toastr.success("Success", `you have successfully set ${profileName} profile`)
+        dispatch(asyncActionFinish())
+
+    } catch (err) {
+        console.log(err)
+        dispatch(asyncActionError())
+    }
+}

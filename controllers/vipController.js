@@ -1,6 +1,8 @@
 const admin = require('../config/admin')
 const firebase = require('../config/firebase')
 
+
+//get-user-product
 exports.postGetUserProduct = async (req, res, next) => {
 
     const { uniqueId } = req.body
@@ -28,6 +30,17 @@ exports.postGetUserProduct = async (req, res, next) => {
 
             userTemplate = userTemplateQuery.data()
 
+            //const increment = firebase.firestore.FieldValue.increment(1)
+
+            const profileRef = admin.firestore()
+                .collection('users')
+                .doc(userId)
+                .collection('templates')
+                .doc(template)
+
+
+            await profileRef.update({ visited: userTemplate.visited + 1 })
+
         }
 
     } else {
@@ -41,4 +54,24 @@ exports.postGetUserProduct = async (req, res, next) => {
     }
     res.send({ infoToshow, userTemplate })
 }
+
+
+exports.addLinkViewCount = async (req, res, next) => {
+
+    const { newLinks, userId, profileName } = req.body
+
+    await admin.firestore()
+        .collection('users')
+        .doc(userId)
+        .collection('templates')
+        .doc(profileName)
+        .update({
+            links: newLinks
+        })
+
+
+
+    res.send("incremented view")
+}
+
 

@@ -50,3 +50,36 @@ exports.assingVipTemplate = async (req, res) => {
         })
     res.send("success")
 }
+
+
+exports.assingVipTemplate = async (req, res) => {
+    const { user, template, product } = req.body
+    await firebase.firestore()
+        .collection('users')
+        .doc(user.uid)
+        .collection('userProducts')
+        .doc(product.uniqueId)
+        .update({
+            template: template
+        })
+    res.send("success")
+}
+
+
+exports.setProfileLinks = async (req, res) => {
+    const { userId, profileName, profileLinkState, profileState } = req.body
+    await firebase.firestore()
+        .collection('users')
+        .doc(userId)
+        .collection('templates')
+        .doc(profileName)
+        .update({
+            bgColor: profileState.bgColor,
+            linkBackground: profileState.linkBackground,
+            textColor: profileState.textColor,
+            theme: profileState.theme,
+            links: profileLinkState
+
+        })
+    res.send("success")
+}
