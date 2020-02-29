@@ -3,6 +3,8 @@ import { withRouter, Link } from "react-router-dom";
 import NavBar from "components/Nav/MainNavBar/NavBar";
 import { connect } from "react-redux";
 import { getTippiVipAllTemplates } from "./vipAccountActions";
+import { Button } from "@material-ui/core";
+import AddProfileButton from "./components/AddProfileButton";
 
 const actions = {
   getTippiVipAllTemplates
@@ -31,10 +33,21 @@ function TippiManageTemplate({ getTippiVipAllTemplates, profiles }) {
           background: "black"
         }}
       ></div>
+      <div className="edit_links_nav_bar">
+        <ul className="edit_links_nav_bar_links_wrapper center_component">
+          <Link to="/account/vip/my-products">
+            <li>MY PRODUCT</li>
+          </Link>
+          <li className="activeLink">MY PROFILE</li>
+        </ul>
+      </div>
       <div className="center_component p4">
         <h1>My Profiles</h1>
       </div>
       <div className="page_wrapper">
+        <div style={{ textAlign: "right" }}>
+          <AddProfileButton />
+        </div>
         <div className="grid_4_main_wrapper">
           {profiles &&
             profiles.map(profile => (

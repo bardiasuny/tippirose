@@ -241,23 +241,6 @@ function TippiManageProfile({
 
           {showSection === "links" && (
             <Fragment>
-              <div className="center_component">
-                <div className="vip_show_header">
-                  <div>
-                    {profileState.img ? (
-                      <img src="" alt="profile pic" />
-                    ) : (
-                      <div className="vip_show_no_avatar">B</div>
-                    )}
-                  </div>
-                  <div
-                    className="ph2 center_component"
-                    style={{ color: `${profileState.textColor}` }}
-                  >
-                    {/* {product.userName.toUpperCase()} */}
-                  </div>
-                </div>
-              </div>
               <div>
                 <div
                   className="edit_links_add_button"

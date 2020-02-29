@@ -17,6 +17,7 @@ import MyProducts from "./components/MyProducts";
 import { text } from "body-parser";
 import { Container } from "@material-ui/core";
 import AddProfileButton from "./components/AddProfileButton";
+import { Link } from "react-router-dom";
 const style = {};
 
 const useStyles = makeStyles(style);
@@ -57,13 +58,19 @@ function TippiVipDashboard({
           background: "black"
         }}
       ></div>
+      <div className="edit_links_nav_bar">
+        <ul className="edit_links_nav_bar_links_wrapper center_component">
+          <li className="activeLink">MY PRODUCT</li>
+          <Link to="/account/vip/profiles">
+            <li>MY PROFILE</li>
+          </Link>
+        </ul>
+      </div>
       <Container>
         <div className="center_component p4">
           <h1>My Products</h1>
         </div>
-        <div style={{ textAlign: "right" }}>
-          <AddProfileButton />
-        </div>
+
         <div className="page_wrapper">
           <div className="grid_4_main_wrapper">
             <MyProducts

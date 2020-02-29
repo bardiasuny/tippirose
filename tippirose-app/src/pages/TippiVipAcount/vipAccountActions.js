@@ -183,3 +183,37 @@ export const setProfileLinks = (profileName, profileLinkState, profileState) => 
         dispatch(asyncActionError())
     }
 }
+
+
+export const createNewProfile = (name) => async (
+    dispatch,
+    getState,
+    { getFirebase, getFirestore }
+) => {
+    dispatch(asyncActionStart())
+    const firebase = getFirebase();
+    const firestore = getFirestore();
+
+    try {
+        const userId = firebase.auth().currentUser.uid
+
+        const config = {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json;charset=UTF-8'
+            }
+
+        }
+        const data = JSON.stringify({ name, userId })
+        const res = await axios.post('/account/create-new-profile', data, config)
+
+
+        toastr.success("Success", `you have successfully create ${name} profile`)
+        dispatch(asyncActionFinish())
+
+    } catch (err) {
+        console.log(err)
+        dispatch(asyncActionError())
+    }
+}

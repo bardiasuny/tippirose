@@ -83,3 +83,23 @@ exports.setProfileLinks = async (req, res) => {
         })
     res.send("success")
 }
+
+
+exports.createNewProfile = async (req, res) => {
+    const { name, userId } = req.body
+    await firebase.firestore()
+        .collection('users')
+        .doc(userId)
+        .collection('templates')
+        .doc(name)
+        .set({
+            bgColor: "#fff",
+            linkBackground: "",
+            textColor: "black",
+            theme: "light",
+            links: [],
+            name: name,
+            visited: 0
+        })
+    res.send("success")
+}
