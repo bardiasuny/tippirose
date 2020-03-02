@@ -208,8 +208,13 @@ export const createNewProfile = (name) => async (
         const data = JSON.stringify({ name, userId })
         const res = await axios.post('/account/create-new-profile', data, config)
 
+        if (res.data === "exist") {
+            return 'exist'
+        }
+        if (res.data === "success") {
+            toastr.success("Success", `you have successfully create ${name} profile`)
+        }
 
-        toastr.success("Success", `you have successfully create ${name} profile`)
         dispatch(asyncActionFinish())
 
     } catch (err) {

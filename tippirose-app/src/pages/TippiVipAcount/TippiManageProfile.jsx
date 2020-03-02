@@ -15,6 +15,7 @@ import uuid from "uuid/v4";
 
 import { DragDropContext } from "react-beautiful-dnd";
 import Loading from "../../components/Loading/Loading";
+import Alert from "@material-ui/lab/Alert";
 
 const actions = {
   getUserTemplate,
@@ -122,9 +123,24 @@ function TippiManageProfile({
 
   const handleSubmit = async e => {
     e.preventDefault();
+    let insideErrors = [];
+    for (let i = 0; i < profileLinkState.length; i++) {
+      setError([]);
+      const link = profileLinkState[i];
+
+      if (link.name === "" || link.link === "") {
+        insideErrors = [...insideErrors, link.id];
+      }
+    }
+
     const profileName = match.params.profile;
-    await setProfileLinks(profileName, profileLinkState, profileState);
-    await getUserTemplate(profileName);
+    if (insideErrors.length > 1) {
+      setError(insideErrors);
+      return;
+    } else {
+      await setProfileLinks(profileName, profileLinkState, profileState);
+      await getUserTemplate(profileName);
+    }
   };
 
   const handleRLDDChange = result => {
@@ -183,6 +199,9 @@ function TippiManageProfile({
         <div className="manage_profile_links_wrapper">
           <div className="edit_links_nav_bar">
             <ul className="edit_links_nav_bar_links_wrapper center_component">
+              <li className="edit_links_nav_bar_profile_name">
+                <p>{profile.name.toUpperCase()}</p>
+              </li>
               <li
                 className={showSection === "links" ? "activeLink" : ""}
                 onClick={() => setShowsection("links")}
@@ -212,7 +231,8 @@ function TippiManageProfile({
             </ul>
           </div>
           <div className="edit_link_visits">
-            <p>Visited: {profileState.visited}</p>
+            <Alert severity="info">Visited: {profileState.visited}</Alert>
+            <p></p>
           </div>
 
           {showSection === "theme" && (
@@ -240,7 +260,7 @@ function TippiManageProfile({
           )}
 
           {showSection === "links" && (
-            <Fragment>
+            <div className="edit_links_links_container">
               <div>
                 <div
                   className="edit_links_add_button"
@@ -257,7 +277,7 @@ function TippiManageProfile({
                   error={error}
                 />
               </DragDropContext>
-            </Fragment>
+            </div>
           )}
           <div className="center_component">
             <div

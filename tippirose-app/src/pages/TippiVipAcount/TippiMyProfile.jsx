@@ -41,22 +41,18 @@ function TippiManageTemplate({ getTippiVipAllTemplates, profiles }) {
           <li className="activeLink">MY PROFILE</li>
         </ul>
       </div>
-      <div className="center_component p4">
-        <h1>My Profiles</h1>
-      </div>
-      <div className="page_wrapper">
-        <div style={{ textAlign: "right" }}>
+      <div className="center_component p4"></div>
+      <div className="page_wrapper_central">
+        <div style={{ textAlign: "center" }}>
           <AddProfileButton />
         </div>
-        <div className="grid_4_main_wrapper">
+        <div className="center_component flex_column">
           {profiles &&
             profiles.map(profile => (
               <Fragment key={profile.name}>
-                <div className="grid_4_item_wrapper">
+                <div className="vip_show_Links">
                   <Link to={`/account/vip/profiles/manage/${profile.name}`}>
-                    <div className="profile_box_wrapper">
-                      <h3>{profile.name}</h3>
-                    </div>
+                    <h3>{profile.name.toUpperCase()}</h3>
                   </Link>
                 </div>
               </Fragment>

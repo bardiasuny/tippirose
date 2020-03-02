@@ -16,6 +16,7 @@ import { TextField } from "@material-ui/core";
 
 import Button from "components/CustomButtons/Button";
 import { withRouter } from "react-router-dom";
+import Alert from "@material-ui/lab/Alert";
 
 const actions = {
   closeModal,
@@ -32,7 +33,15 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.background.paper,
     border: "2px solid #000",
     boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3)
+    padding: theme.spacing(2, 4, 3),
+
+    minWidth: 400,
+    maxWith: "90%",
+    minHeight: 300,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-around",
+    alignItems: "space-around"
   }
 }));
 
@@ -40,12 +49,25 @@ function AddProfileModal({ closeModal, createNewProfile, history }) {
   const classes = useStyles();
 
   const [name, setName] = useState("");
+  const [error, setError] = useState("");
 
   const handleCreateNewPRofile = async e => {
     e.preventDefault();
-    await createNewProfile(name);
+    const lowerCaseName = name.toLowerCase();
 
-    await history.push(`/account/vip/profiles/manage/${name}`);
+    if (lowerCaseName === "") {
+      setError("please fillout the name filled!");
+      return;
+    }
+    const stateCreatProfile = await createNewProfile(lowerCaseName);
+
+    console.log(stateCreatProfile);
+    if (stateCreatProfile === "exist") {
+      setError(" this profile name already exist, choose another one!");
+      return;
+    }
+
+    await history.push(`/account/vip/profiles/manage/${lowerCaseName}`);
     closeModal();
   };
 
@@ -67,9 +89,14 @@ function AddProfileModal({ closeModal, createNewProfile, history }) {
           <Fade in={true}>
             <div className={classes.paper}>
               <div className="center_component">
-                <p>Profile Name</p>
+                <h3>ADD NEW PROFILE</h3>
               </div>
-              <form className="flex_column" onSubmit={handleCreateNewPRofile}>
+              <form
+                className="flex_column"
+                onSubmit={handleCreateNewPRofile}
+                autoComplete="off"
+                autoCapitalize="off"
+              >
                 <TextField
                   placeholder="Profile Name"
                   name="name"
@@ -77,11 +104,12 @@ function AddProfileModal({ closeModal, createNewProfile, history }) {
                   value={name}
                   onChange={e => setName(e.target.value)}
                 />
-                <Button type="submit" color="primary">
+                <Button style={{ marginTop: 30 }} type="submit" color="success">
                   {" "}
                   Create
                 </Button>
               </form>
+              {error && <Alert severity="warning">{error}</Alert>}
             </div>
           </Fade>
         </Modal>

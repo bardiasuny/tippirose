@@ -72,7 +72,7 @@ function TippiVipDashboard({
         </div>
 
         <div className="page_wrapper">
-          <div className="grid_4_main_wrapper">
+          <div className="grid_1_main_wrapper">
             <MyProducts
               products={products}
               templates={templates}

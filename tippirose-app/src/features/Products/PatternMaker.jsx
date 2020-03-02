@@ -53,7 +53,7 @@ function PatternMaker({
     };
     const uniqueId = `${product.id}-${uuid()}`;
     setUniqId(uniqueId);
-    const qrUrl = `http://192.168.1.64:3000/vip/${uniqueId}`;
+    const qrUrl = `http://tippirose.com/vip/${uniqueId}`;
     setUniqUrl(qrUrl);
 
     getTemplate();
@@ -95,15 +95,15 @@ function PatternMaker({
       const uniqURL = uniqUrl && uniqUrl;
       svgToPng(svg)
         .then(async data => {
-          await orderProductMakeVip(
-            data,
-            product,
-            color,
-            size,
-            selectedPattern,
-            uniqueId,
-            qrUrl
-          );
+          // await orderProductMakeVip(
+          //   data,
+          //   product,
+          //   color,
+          //   size,
+          //   selectedPattern,
+          //   uniqueId,
+          //   qrUrl
+          // );
 
           var a = document.createElement("a");
           a.download = "template.png";
@@ -124,16 +124,16 @@ function PatternMaker({
             <QRCode
               size={1}
               id="qrcode"
-              bgColor={"#0c0d0e00"}
-              fgColor={"#302f57"}
+              //bgColor={"#0c0d0e00"}
+              fgColor={"#000"}
               renderAs={"svg"}
               value={uniqUrl && uniqUrl}
             />
             <QRCode
               size={1}
               id="qrcode2"
-              bgColor={"#0c0d0e00"}
-              fgColor={"#f24f48"}
+              //bgColor={"#0c0d0e00"}
+              fgColor={"#000"}
               renderAs={"svg"}
               value={uniqUrl && uniqUrl}
             />

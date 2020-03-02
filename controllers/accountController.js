@@ -87,6 +87,22 @@ exports.setProfileLinks = async (req, res) => {
 
 exports.createNewProfile = async (req, res) => {
     const { name, userId } = req.body
+
+    const available = await firebase.firestore()
+        .collection('users')
+        .doc(userId)
+        .collection('templates')
+        .where("name", "==", name)
+        .get()
+
+    if (available.docs.length > 0) {
+
+        res.send("exist")
+        return
+    }
+
+
+
     await firebase.firestore()
         .collection('users')
         .doc(userId)

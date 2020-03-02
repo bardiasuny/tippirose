@@ -24,8 +24,10 @@ import TippiVipFrontShow from 'pages/TippitVipFront/TippiVipFrontShow';
 import TippiVipDashboard from 'pages/TippiVipAcount/TippiVipDashboard';
 import TippiMyProfile from 'pages/TippiVipAcount/TippiMyProfile';
 import TippiManageProfile from 'pages/TippiVipAcount/TippiManageProfile';
+import UnderConstruction from 'pages/Homepage/UnderCunstruction';
 
 const mapState = state => ({
+  auth: state.firebase.auth,
   admin: state.firebase.profile.role === "admin",
   isVip: state.firebase.profile.level && state.firebase.profile.level === "vip"
 })
@@ -75,23 +77,29 @@ const styles = {
 const useStyles = makeStyles(styles)
 
 
-function App({ match, admin, isVip, history }) {
+function App({ auth, match, admin, isVip, history }) {
   const classes = useStyles();
   return (
     <Fragment>
       <div className={classes.wrapper}>
         <ModalManager />
         <Switch>
-          <Route exact path="/" component={Homepage} />
-          <Route path="/shop" component={Shop} />
+
+
+          <Route exact path="/" component={UnderConstruction} />
           <Route path="/vip/:upId" component={TippiVipFrontShow} />
-          {admin && <Route path="/admin" component={Admin} />}
-          {isVip && <Route exact path="/account/vip/" component={TippiVipDashboard} />}
-          {isVip && <Route exact path="/account/vip/my-products" component={TippiVipDashboard} />}
-          {isVip && <Route exact path="/account/vip/profiles" component={TippiMyProfile} />}
-          {isVip && <Route exact path="/account/vip/profiles/manage" component={TippiManageProfile} />}
-          {isVip && <Route path="/account/vip/profiles/manage/:profile" component={TippiManageProfile} />}
-          {!match.isExact && <Route render={() => <Fragment> <h1>NOT FOUND</h1><Link to="/shop">Shop</Link>- <Link to="/admin">Admin</Link></Fragment>} />}
+          {!auth.isEmpty && auth.isLoaded &&
+            <Switch>
+              <Route path="/shop" component={Shop} />
+              <Route exact path="/home" component={Homepage} />
+              {admin && <Route path="/admin" component={Admin} />}
+              {isVip && <Route exact path="/account/vip/" component={TippiVipDashboard} />}
+              {isVip && <Route exact path="/account/vip/my-products" component={TippiVipDashboard} />}
+              {isVip && <Route exact path="/account/vip/profiles" component={TippiMyProfile} />}
+              {isVip && <Route exact path="/account/vip/profiles/manage" component={TippiManageProfile} />}
+              {isVip && <Route path="/account/vip/profiles/manage/:profile" component={TippiManageProfile} />}
+              {!match.isExact && <Route render={() => <Fragment> <h1>NOT FOUND</h1><Link to="/shop">Shop</Link>- <Link to="/admin">Admin</Link></Fragment>} />}
+            </Switch>}
         </Switch>
       </div>
     </Fragment >

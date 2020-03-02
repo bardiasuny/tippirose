@@ -23,6 +23,13 @@ const useStyles = makeStyles(styles);
 
 function SubscribeEmail() {
   const classes = useStyles();
+
+  const [email, setEmail] = useState("");
+  const handleEmailSubmit = e => {
+    const email = e.target.value;
+
+    setEmail(email);
+  };
   return (
     <Fragment>
       <div
@@ -30,7 +37,6 @@ function SubscribeEmail() {
           classes.subscribeLine,
           classes.subscribeLineImage
         )}
-        style={{ backgroundImage: `url(${bg7})` }}
       >
         <div className={classes.container} style={{ width: "auto" }}>
           <GridContainer>
@@ -64,7 +70,9 @@ function SubscribeEmail() {
                                 <Mail />
                               </InputAdornment>
                             ),
-                            placeholder: "Your Email..."
+                            placeholder: "Your Email...",
+                            value: email,
+                            onChange: e => handleEmailSubmit(e)
                           }}
                         />
                       </GridItem>

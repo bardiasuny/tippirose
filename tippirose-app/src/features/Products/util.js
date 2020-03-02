@@ -19,10 +19,10 @@ var svgToPng = function (svgText, margin, fill) {
             // figure out the height and width from svg text
             var match = svgText.match(/height=\"(\d+)/m);
             var height = match && match[1] ? parseInt(match[1], 10) : 200;
-            height = 1181;
+            height = 4000;
             var match = svgText.match(/width=\"(\d+)/m);
             var width = match && match[1] ? parseInt(match[1], 10) : 200;
-            width = 1181;
+            width = 4000;
             margin = margin || 0;
 
             // it needs a namespace
@@ -39,7 +39,7 @@ var svgToPng = function (svgText, margin, fill) {
 
             // make a blob from the svg
             var svg = new Blob([svgText], {
-                type: "image/svg+xml;charset=utf-8"
+                type: "image/svg+xml;base64"
             });
 
             // create a dom object for that image
@@ -73,7 +73,7 @@ var svgToPng = function (svgText, margin, fill) {
                 // we don't need the original any more
                 domUrl.revokeObjectURL(url);
                 // now we can resolve the promise, passing the base64 url
-                resolve(canvas.toDataURL());
+                resolve(canvas.toDataURL("image/png"));
             };
 
             // load the image
