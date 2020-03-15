@@ -13,8 +13,20 @@
     "node": "8"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "canvg": "^3.0.5",
+    "config": "^3.2.5",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-validator": "^6.4.0",
+    "firebase": "^7.9.3",
     "firebase-admin": "^8.6.0",
-    "firebase-functions": "^3.3.0"
+    "firebase-functions": "^3.3.0",
+    "gravatar": "^1.8.0",
+    "qrcode.react": "^1.0.0",
+    "react-svg": "^11.0.9",
+    "save-svg-as-png": "^1.4.17",
+    "uuid": "^3.4.0"
   },
   "devDependencies": {
     "eslint": "^5.12.0",

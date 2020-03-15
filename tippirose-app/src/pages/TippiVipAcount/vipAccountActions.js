@@ -10,6 +10,14 @@ import { FETCH_ALL_TEMPLATES, FETCH_PRODUCT_TEMPLATE } from "./vipConstants"
 import axios from "axios"
 import { toastr } from "react-redux-toastr";
 
+let api = ""
+
+if (process.env.NODE_ENV === 'production') {
+    api = 'https://us-central1-tippirose-london.cloudfunctions.net/app'
+} else {
+    api = ""
+}
+
 
 
 export const getTippiVipUserProducts = (userId, uniqueId) => async (
@@ -17,12 +25,13 @@ export const getTippiVipUserProducts = (userId, uniqueId) => async (
     getState,
     { getFirebase, getFirestore }
 ) => {
+    dispatch(asyncActionStart())
     const firebase = getFirebase();
     const firestore = getFirestore();
 
     try {
 
-        const user = firebase.auth().currentUser
+        const user = await firebase.auth().currentUser
 
         if (user.uid) {
             const config = {
@@ -34,12 +43,13 @@ export const getTippiVipUserProducts = (userId, uniqueId) => async (
 
             }
             const data = JSON.stringify({ user })
-            const res = await axios.post('/account/get-vip-user-products', data, config)
+            const res = await axios.post(`${api}/account/get-vip-user-products`, data, config)
             dispatch({ type: FETCH_PRODUCT_VIP_DASHBOARD, payload: res.data })
         }
-
+        dispatch(asyncActionFinish())
     } catch (err) {
         console.log(err)
+        dispatch(asyncActionError())
     }
 }
 
@@ -53,7 +63,7 @@ export const getTippiVipAllTemplates = () => async (
 
     try {
         dispatch(asyncActionStart())
-        const user = firebase.auth().currentUser
+        const user = await firebase.auth().currentUser
 
         if (user.uid) {
             const config = {
@@ -66,7 +76,7 @@ export const getTippiVipAllTemplates = () => async (
             }
             const data = JSON.stringify({ user })
 
-            const res = await axios.post('/account/fetch-all-templates', data, config)
+            const res = await axios.post(`${api}/account/fetch-all-templates`, data, config)
 
 
             dispatch({ type: FETCH_ALL_TEMPLATES, payload: res.data })
@@ -90,7 +100,7 @@ export const assignVipTemplate = (template, product) => async (
     const firestore = getFirestore();
     try {
 
-        const user = firebase.auth().currentUser
+        const user = await firebase.auth().currentUser
 
         if (user.uid) {
             const config = {
@@ -103,7 +113,7 @@ export const assignVipTemplate = (template, product) => async (
             }
             const data = JSON.stringify({ user, template, product })
 
-            const res = await axios.post('/account/assign-vip-template', data, config)
+            const res = await axios.post(`${api}/account/assign-vip-template`, data, config)
             if (res.data === 'success') {
                 toastr.success("success", "you have successfuly changes this product`s theme")
             }
@@ -125,9 +135,9 @@ export const getUserTemplate = (template) => async (
     dispatch(asyncActionStart())
     const firebase = getFirebase();
     const firestore = getFirestore();
-
+    console.log(api)
     try {
-        const userId = firebase.auth().currentUser.uid
+        const userId = await firebase.auth().currentUser.uid
 
         const config = {
             method: 'POST',
@@ -138,7 +148,7 @@ export const getUserTemplate = (template) => async (
 
         }
         const data = JSON.stringify({ template, userId })
-        const res = await axios.post('/user/get-user-template', data, config)
+        const res = await axios.post(`${api}/user/get-user-template`, data, config)
 
 
         dispatch({ type: FETCH_PRODUCT_TEMPLATE, payload: res.data })
@@ -161,7 +171,7 @@ export const setProfileLinks = (profileName, profileLinkState, profileState) => 
     const firestore = getFirestore();
 
     try {
-        const userId = firebase.auth().currentUser.uid
+        const userId = await firebase.auth().currentUser.uid
 
         const config = {
             method: 'POST',
@@ -172,7 +182,7 @@ export const setProfileLinks = (profileName, profileLinkState, profileState) => 
 
         }
         const data = JSON.stringify({ userId, profileName, profileLinkState, profileState })
-        const res = await axios.post('/account/set-profile-links', data, config)
+        const res = await axios.post(`${api}/account/set-profile-links`, data, config)
 
 
         toastr.success("Success", `you have successfully set ${profileName} profile`)
@@ -195,7 +205,7 @@ export const createNewProfile = (name) => async (
     const firestore = getFirestore();
 
     try {
-        const userId = firebase.auth().currentUser.uid
+        const userId = await firebase.auth().currentUser.uid
 
         const config = {
             method: 'POST',
@@ -206,7 +216,7 @@ export const createNewProfile = (name) => async (
 
         }
         const data = JSON.stringify({ name, userId })
-        const res = await axios.post('/account/create-new-profile', data, config)
+        const res = await axios.post(`${api}/account/create-new-profile`, data, config)
 
         if (res.data === "exist") {
             return 'exist'

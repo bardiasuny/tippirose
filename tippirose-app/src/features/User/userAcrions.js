@@ -10,6 +10,13 @@ import {
 
 import uuid from "uuid"
 
+let api = ""
+
+if (process.env.NODE_ENV === 'production') {
+    api = 'https://us-central1-tippirose-london.cloudfunctions.net/app'
+} else {
+    api = ""
+}
 
 
 export const addFavourite = (product) => async (
@@ -132,7 +139,7 @@ export const orderProductMakeVip = (data, product, color, size, pattern, uniqId,
             const date = firestore.FieldValue.serverTimestamp()
             const secretKey = uuid()
             const body = JSON.stringify({ downloadURL, product, color, size, pattern, uniqId, uniqueUrl, user, date, secretKey })
-            const res = await axios.post('/user/order-product', body, config)
+            const res = await axios.post(`${api}/user/order-product`, body, config)
             toastr.success("Congrats", res.data)
         } else {
 

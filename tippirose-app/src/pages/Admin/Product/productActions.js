@@ -12,7 +12,13 @@ import axios from "axios"
 
 import { FETCH_PRODUCT, FETCH_PRODUCT_IMAGES, FETCH_PRODUCT_PATTERNS } from "./productConstants"
 
+let api = ""
 
+if (process.env.NODE_ENV === 'production') {
+    api = 'https://us-central1-tippirose-london.cloudfunctions.net/app'
+} else {
+    api = ""
+}
 
 
 
@@ -40,7 +46,7 @@ export const addProduct = (product, images, initialValues) => async (
             }
 
             const body = JSON.stringify({ product, images, initialValues, idToken })
-            const res = await axios.post('/admin/add-product', body, config)
+            const res = await axios.post(`${api}/admin/add-product`, body, config)
             console.log(res.data)
             toastr.success("Success", "you have successfully added our new product, well done ")
         }).catch(function (error) {
@@ -153,7 +159,7 @@ export const getProductWithCat = (category, productID) => async (
                 }
             }
             const body = JSON.stringify({ category, productID })
-            const res = await axios.post('/admin/get-product', body, config)
+            const res = await axios.post(`${api}/admin/get-product`, body, config)
 
             dispatch({ type: FETCH_PRODUCT, payload: { product: res.data } });
         } else {
@@ -241,7 +247,7 @@ export const getProductImagesWithCat = (category, productID) => async (
                 }
             }
             const body = JSON.stringify({ category, productID })
-            const res = await axios.post('/admin/get-product-images', body, config)
+            const res = await axios.post(`${api}/admin/get-product-images`, body, config)
 
             dispatch({ type: FETCH_PRODUCT_IMAGES, payload: { img: res.data } });
         } else {

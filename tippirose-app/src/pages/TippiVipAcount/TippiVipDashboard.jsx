@@ -1,5 +1,4 @@
-import React, { Fragment, useState, useEffect } from "react";
-import PropTypes from "prop-types";
+import React, { Fragment, useEffect } from "react";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -12,19 +11,21 @@ import {
 } from "./vipAccountActions";
 import { connect } from "react-redux";
 import NavBar from "components/Nav/MainNavBar/NavBar";
-import Button from "components/CustomButtons/Button";
+
 import MyProducts from "./components/MyProducts";
-import { text } from "body-parser";
+
 import { Container } from "@material-ui/core";
-import AddProfileButton from "./components/AddProfileButton";
+
 import { Link } from "react-router-dom";
+import Loading from "../../components/Loading/Loading";
 const style = {};
 
 const useStyles = makeStyles(style);
 
 const mapState = state => ({
   products: state.product.vipDashboardProducts,
-  templates: state.vip.allTemplates
+  templates: state.vip.allTemplates,
+  loading: state.async.loading
 });
 const actions = {
   getTippiVipUserProducts,
@@ -37,7 +38,8 @@ function TippiVipDashboard({
   products,
   getTippiVipAllTemplates,
   templates,
-  assignVipTemplate
+  assignVipTemplate,
+  loading
 }) {
   const classes = useStyles();
   useEffect(() => {
@@ -47,6 +49,8 @@ function TippiVipDashboard({
     };
     getAllproducts();
   }, []);
+
+  if (loading) return <Loading />;
   return (
     <Fragment>
       <NavBar />

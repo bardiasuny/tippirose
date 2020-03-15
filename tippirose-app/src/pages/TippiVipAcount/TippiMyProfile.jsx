@@ -1,20 +1,22 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 import { withRouter, Link } from "react-router-dom";
 import NavBar from "components/Nav/MainNavBar/NavBar";
 import { connect } from "react-redux";
 import { getTippiVipAllTemplates } from "./vipAccountActions";
-import { Button } from "@material-ui/core";
+
 import AddProfileButton from "./components/AddProfileButton";
+import Loading from "../../components/Loading/Loading";
 
 const actions = {
   getTippiVipAllTemplates
 };
 
 const mapState = state => ({
-  profiles: state.vip.allTemplates
+  profiles: state.vip.allTemplates,
+  loading: state.async.loading
 });
 
-function TippiManageTemplate({ getTippiVipAllTemplates, profiles }) {
+function TippiManageTemplate({ getTippiVipAllTemplates, profiles, loading }) {
   useEffect(() => {
     const get = async () => {
       await getTippiVipAllTemplates();
@@ -22,6 +24,7 @@ function TippiManageTemplate({ getTippiVipAllTemplates, profiles }) {
     get();
   }, []);
 
+  if (loading) return <Loading />;
   return (
     <Fragment>
       <NavBar />

@@ -10,6 +10,13 @@ import { actionTypes } from "redux-firestore";
 import { SubmissionError } from "redux-form";
 import axios from "axios"
 
+let api = ""
+
+if (process.env.NODE_ENV === 'production') {
+    api = 'https://us-central1-tippirose-london.cloudfunctions.net/app'
+} else {
+    api = ""
+}
 
 export const getTippiVipUserProduct = (uniqueId) => async (
     dispatch,
@@ -30,7 +37,7 @@ export const getTippiVipUserProduct = (uniqueId) => async (
 
         }
         const data = JSON.stringify({ uniqueId })
-        const res = await axios.post('/vip/get-user-product', data, config)
+        const res = await axios.post(`${api}/vip/get-user-product`, data, config)
 
         dispatch({ type: FETCH_SCANNED_PRODUCT, payload: res.data.infoToshow })
 
@@ -62,8 +69,7 @@ export const activateProduct = (product, userData, user) => async (
 
         }
         const data = JSON.stringify({ product, userData, user })
-        const res = await axios.post('/user/activate-product', data, config)
-        console.log(res.data)
+        const res = await axios.post(`${api}/user/activate-product`, data, config)
 
         if (res.data === 'match') {
             window.location.reload()
@@ -96,7 +102,7 @@ export const addLinkViewCount = (newLinks, profileName) => async (
 
         }
         const data = JSON.stringify({ newLinks, userId, profileName })
-        const res = await axios.post('/vip/add-links-view-count', data, config)
+        const res = await axios.post(`${api}/vip/add-links-view-count`, data, config)
 
         // dispatch({ type: FETCH_PRODUCT_VIP_DASHBOARD, payload: res.data })
 

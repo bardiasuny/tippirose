@@ -8,7 +8,8 @@
     "server": "nodemon index.js",
     "client": "npm start --prefix tippirose-app",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix tippirose-app && npm run build --prefix tippirose-app"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix tippirose-app && npm run build --prefix tippirose-app",
+    "deploy": "--prefix tippirose-app && npm run build  && firebase deploy"
   },
   "author": "bardia",
   "license": "ISC",

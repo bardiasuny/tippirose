@@ -1,10 +1,8 @@
-import React, { Fragment, useState, useEffect } from "react";
-import PropTypes from "prop-types";
+import React, { Fragment } from "react";
 
 import { Field, reduxForm } from "redux-form";
 // @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-import SelectInputProduct from "components/Forms/Products/SelectInputProduct";
+
 import InputTextProduct from "components/Forms/Products/InputTextProduct";
 import Button from "components/CustomButtons/Button";
 import { connect } from "react-redux";

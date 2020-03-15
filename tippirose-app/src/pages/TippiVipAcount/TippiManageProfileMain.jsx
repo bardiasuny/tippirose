@@ -1,13 +1,11 @@
-import React, { Fragment, useState, useEffect, useCallback } from "react";
-import PropTypes from "prop-types";
+import React, { Fragment, useState, useEffect } from "react";
 
 // @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
+
 import NavBar from "components/Nav/MainNavBar/NavBar";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { getUserTemplate } from "./vipAccountActions";
-import { ItemContent } from "semantic-ui-react";
 import { TextField, Button } from "@material-ui/core";
 import RLDD from "react-list-drag-and-drop/lib/RLDD";
 

@@ -53,9 +53,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "react-scripts build && firebase deploy"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -72,5 +73,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:7000/"
+  "proxy": "http://localhost:5001/tippirose-london/us-central1/app/"
 }

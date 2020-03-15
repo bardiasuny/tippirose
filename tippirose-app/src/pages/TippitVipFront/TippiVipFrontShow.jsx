@@ -14,6 +14,7 @@ import { Button, Container } from "@material-ui/core";
 
 import { openModal, closeModal } from "../../features/Modals/modalActions";
 import Loading from "components/Loading/Loading";
+import LinksItems from "../TippiVipAcount/components/LinksItems";
 
 const style = {};
 
@@ -52,7 +53,6 @@ function TippiVipFrontShow({
     };
     getShow();
   }, []);
-  console.log(template.linkBg);
 
   const handleAddLinkViewCount = async index => {
     const newLinks = [...template.links];
@@ -82,7 +82,9 @@ function TippiVipFrontShow({
                     {template.img ? (
                       <img src="" alt="profile pic" />
                     ) : (
-                      <div className="vip_show_no_avatar">B</div>
+                      <div className="center_component">
+                        <div className="vip_show_no_avatar">B</div>
+                      </div>
                     )}
                   </div>
                   <div
@@ -92,34 +94,8 @@ function TippiVipFrontShow({
                     {product.userName.toUpperCase()}
                   </div>
                 </div>
-                <div
-                  style={{
-                    width: "100%",
-                    height: "60vh"
-                  }}
-                  className="center_component flex_column"
-                >
-                  {template &&
-                    template.links.map((link, index) => (
-                      <Fragment>
-                        {link.visible && (
-                          <div
-                            style={{
-                              background: `${template.linkBackground}`
-                            }}
-                            className="vip_show_Links"
-                            onClick={() => handleAddLinkViewCount(index)}
-                          >
-                            <a href={link.link} target="_blank">
-                              <p style={{ color: `${template.textColor}` }}>
-                                {link.name}
-                              </p>
-                            </a>
-                          </div>
-                        )}
-                      </Fragment>
-                    ))}
-                </div>
+
+                <LinksItems links={template && template.links} />
               </Fragment>
             ) : (
               <Fragment>

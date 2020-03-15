@@ -1,21 +1,20 @@
-import React, { Fragment, useState, useEffect, useCallback } from "react";
-import PropTypes from "prop-types";
+import React, { Fragment, useState, useEffect } from "react";
 
 // @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
 import NavBar from "components/Nav/MainNavBar/NavBar";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { getUserTemplate, setProfileLinks } from "./vipAccountActions";
-import { ItemContent } from "semantic-ui-react";
-import { TextField, Button } from "@material-ui/core";
-import RLDD from "react-list-drag-and-drop/lib/RLDD";
 import Column from "./components/Column";
 import uuid from "uuid/v4";
 
 import { DragDropContext } from "react-beautiful-dnd";
 import Loading from "../../components/Loading/Loading";
 import Alert from "@material-ui/lab/Alert";
+
+import LinksDisplaySection from "./components/LinksDisplaySection";
+import ManageProfileNavBar from "./components/ManageProfileNavBar";
+import ManageTheme from "./components/ManageTheme";
 
 const actions = {
   getUserTemplate,
@@ -84,6 +83,57 @@ function TippiManageProfile({
 
     const item = items[i];
 
+    if (e.target.name === "link") {
+      const link = e.target.value;
+
+      switch (true) {
+        case link.includes("facebook"):
+          item.brand = "facebook";
+          item.bgColor = "#3C5A99";
+          item.textColor = "#fff";
+          break;
+        case link.includes("instagram"):
+          item.brand = "instagram";
+          item.bgColor = "#fff";
+          item.textColor = "#000";
+          break;
+        case link.includes("twitter"):
+          item.brand = "twitter";
+          item.bgColor = "#28ABE1";
+          item.textColor = "#fff";
+          break;
+        case link.includes("youtube"):
+          item.brand = "youtube";
+          item.bgColor = "#f00";
+          item.textColor = "#fff";
+          break;
+        case link.includes("linkedin"):
+          item.brand = "linkedin";
+          item.bgColor = "#0279B4";
+          item.textColor = "#fff";
+          break;
+        case link.includes("pintrest"):
+          item.brand = "pintrest";
+          item.bgColor = "#e60524";
+          item.textColor = "#fff";
+          break;
+        case link.includes("amazon"):
+          item.brand = "amazon";
+          item.bgColor = "#f90";
+          item.textColor = "#fff";
+          break;
+        case link.includes("ebay"):
+          item.brand = "ebay";
+          item.bgColor = "#fff";
+          item.textColor = "#fff";
+          break;
+        default:
+          item.brand = "";
+          item.bgColor = "#e3e3e3";
+          item.textColor = "#000";
+      }
+    }
+
     if (e.target.name === "visible") {
       item[e.target.name] = !item.visible;
     } else {
@@ -93,7 +143,7 @@ function TippiManageProfile({
     items[i] = item;
 
     setProfileLinkState(items);
-
+    console.log(profileLinkState);
     let insideErrors = [];
     for (let i = 0; i < items.length; i++) {
       setError([]);
@@ -112,7 +162,7 @@ function TippiManageProfile({
       ...profileLinkState,
       { id: `${uuid()}`, link: "", name: "", visible: true, visited: 0 }
     ];
-    console.log(item);
+
     setProfileLinkState(item);
   };
   const handleDeleteLink = i => {
@@ -197,39 +247,11 @@ function TippiManageProfile({
       ></div>
       <div className="manage_profile_page_wrapper">
         <div className="manage_profile_links_wrapper">
-          <div className="edit_links_nav_bar">
-            <ul className="edit_links_nav_bar_links_wrapper center_component">
-              <li className="edit_links_nav_bar_profile_name">
-                <p>{profile.name.toUpperCase()}</p>
-              </li>
-              <li
-                className={showSection === "links" ? "activeLink" : ""}
-                onClick={() => setShowsection("links")}
-              >
-                LINKS
-              </li>
-              <li
-                className={showSection === "theme" ? "activeLink" : ""}
-                onClick={() => setShowsection("theme")}
-              >
-                THEME
-              </li>
-              <li
-                className={showSection === "picture" ? "activeLink" : ""}
-                onClick={() => setShowsection("picture")}
-              >
-                PICTURE
-              </li>
-              <div className="mainNav-mobile">
-                <li
-                  className={showSection === "preview" ? "activeLink" : ""}
-                  onClick={() => setShowsection("preview")}
-                >
-                  PREVIEW
-                </li>
-              </div>
-            </ul>
-          </div>
+          <ManageProfileNavBar
+            setShowsection={setShowsection}
+            showSection={showSection}
+            profile={profile}
+          />
           <div className="edit_link_visits">
             <Alert severity="info">Visited: {profileState.visited}</Alert>
             <p></p>
@@ -237,25 +259,10 @@ function TippiManageProfile({
 
           {showSection === "theme" && (
             <Fragment>
-              <div className="theme_section_wrapper center_component flex_column">
-                <div
-                  onClick={() => handleThemeChange("dark")}
-                  className={`theme_select_theme_wapper ${
-                    profileState.theme === "dark" ? "active_theme_button" : ""
-                  }`}
-                >
-                  DARK THEME
-                </div>
-                <div
-                  onClick={() => handleThemeChange("light")}
-                  className="theme_select_theme_wapper"
-                  className={`theme_select_theme_wapper ${
-                    profileState.theme === "light" ? "active_theme_button" : ""
-                  }`}
-                >
-                  LIGHT THEME
-                </div>
-              </div>
+              <ManageTheme
+                handleThemeChange={handleThemeChange}
+                profileState={profileState}
+              />
             </Fragment>
           )}
 
@@ -293,120 +300,20 @@ function TippiManageProfile({
           </div>
         </div>
         <div className="manage_links_display_section">
-          <div
-            className="manage_links_display_wrapper"
-            style={{ background: profileState.bgColor }}
-          >
-            <div
-              className="links_display_tippi_branding"
-              style={{ background: profileState.bgColor }}
-            >
-              <p style={{ color: `${profileState.textColor}` }}>TIIPIROSE</p>
-            </div>
-            <div
-              style={{
-                width: "100%"
-              }}
-              className="center_component flex_column"
-            >
-              <div className="center_component">
-                <div className="vip_show_header">
-                  <div>
-                    {profileState.img ? (
-                      <img src="" alt="profile pic" />
-                    ) : (
-                      <div className="vip_show_no_avatar">B</div>
-                    )}
-                  </div>
-                  <div
-                    className="ph2 center_component"
-                    style={{ color: `${profileState.textColor}` }}
-                  >
-                    {/* {product.userName.toUpperCase()} */}
-                  </div>
-                </div>
-              </div>
-              {profileLinkState &&
-                profileLinkState.map(link => (
-                  <Fragment>
-                    {link.visible && (
-                      <div
-                        style={{
-                          background: `${profileState.linkBackground}`
-                        }}
-                        className="vip_show_Links"
-                      >
-                        <a href={link.link} target="_blank">
-                          <p style={{ color: `${profileState.textColor}` }}>
-                            {link.name}
-                          </p>
-                        </a>
-                      </div>
-                    )}
-                  </Fragment>
-                ))}
-            </div>
-          </div>
+          <LinksDisplaySection
+            profileState={profileState}
+            profileLinkState={profileLinkState}
+          />
         </div>
         {showSection === "preview" && (
           <div
             className="manage_links_display_section_mobile"
             style={{ display: "flex" }}
           >
-            <div
-              className="manage_links_display_wrapper"
-              style={{ background: profileState.bgColor }}
-            >
-              <div
-                className="links_display_tippi_branding"
-                style={{ background: profileState.bgColor }}
-              >
-                <p style={{ color: `${profileState.textColor}` }}>TIIPIROSE</p>
-              </div>
-              <div
-                style={{
-                  width: "100%"
-                }}
-                className="center_component flex_column"
-              >
-                <div className="center_component">
-                  <div className="vip_show_header">
-                    <div>
-                      {profileState.img ? (
-                        <img src="" alt="profile pic" />
-                      ) : (
-                        <div className="vip_show_no_avatar">B</div>
-                      )}
-                    </div>
-                    <div
-                      className="ph2 center_component"
-                      style={{ color: `${profileState.textColor}` }}
-                    >
-                      {/* {product.userName.toUpperCase()} */}
-                    </div>
-                  </div>
-                </div>
-                {profileLinkState &&
-                  profileLinkState.map(link => (
-                    <Fragment>
-                      {link.visible && (
-                        <div
-                          style={{
-                            background: `${profileState.linkBackground}`
-                          }}
-                          className="vip_show_Links"
-                        >
-                          <a href={link.link} target="_blank">
-                            <p style={{ color: `${profileState.textColor}` }}>
-                              {link.name}
-                            </p>
-                          </a>
-                        </div>
-                      )}
-                    </Fragment>
-                  ))}
-              </div>
-            </div>
+            <LinksDisplaySection
+              profileState={profileState}
+              profileLinkState={profileLinkState}
+            />
           </div>
         )}
       </div>

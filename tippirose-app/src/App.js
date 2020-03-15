@@ -1,24 +1,18 @@
 import React, { Fragment } from 'react';
-import SignInSide from "./pages/SignInSide"
 import { makeStyles } from "@material-ui/core/styles";
 
 import ModalManager from "./features/Modals/ModalManager";
-import classNames from "classnames"
 
-
-
-import NavBar from "./components/Nav/MainNavBar/NavBar"
 
 //pages
 
 import Shop from "./pages/Shop/Shop"
 import Admin from "./pages/Admin/AdminPage"
 
-import { Box, NoSsr, Hidden } from '@material-ui/core';
 import { Route, withRouter, Link, Switch } from 'react-router-dom';
 import Homepage from './pages/Homepage/Homepage';
 
-import MainFooter from './features/Footer/MainFooter'
+
 import { connect } from 'react-redux';
 import TippiVipFrontShow from 'pages/TippitVipFront/TippiVipFrontShow';
 import TippiVipDashboard from 'pages/TippiVipAcount/TippiVipDashboard';

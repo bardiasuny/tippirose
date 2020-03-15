@@ -1,4 +1,3 @@
-const functions = require('firebase-functions')
 const express = require('express')
 const bodyParser = require('body-parser')
 var cors = require('cors');
@@ -22,13 +21,13 @@ app.use('/vip', vipRoutes.routes)
 app.use('/account', accountRoutes.routes)
 
 
-// if (process.env.NODE_ENV === 'production') {
-//     app.use(express.static('tippirose-app/build'))
-//     app.get('*', (req, res) => {
-//         res.sendFile(path.resolve(__dirname, 'tippirose-app', 'build', 'index.html'))
-//     })
-// }
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('tippirose-app/build'))
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'tippirose-app', 'build', 'index.html'))
+    })
+}
 
 exports.app = functions.https.onRequest(app)
 
-//app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
