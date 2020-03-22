@@ -178,14 +178,7 @@ function ProductDetailInside({ allImages, product, isAdmin }) {
                         title: "Designer Information",
                         content: (
                           <p>
-                            An infusion of West Coast cool and New York
-                            attitude, Rebecca Minkoff is synonymous with It girl
-                            style. Minkoff burst on the fashion scene with her
-                            best-selling {"'"}Morning After Bag{"'"} and later
-                            expanded her offering with the Rebecca Minkoff
-                            Collection - a range of luxe city staples with a{" "}
-                            {'"'}
-                            downtown romantic{'"'} theme.
+                           {product.history}
                           </p>
                         )
                       },

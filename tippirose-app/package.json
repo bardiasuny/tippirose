@@ -73,5 +73,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:5001/tippirose-london/us-central1/app/"
+  "proxy": "http://localhost:5001/tippirose-london/us-central1/app/",
+  "devDependencies": {
+    "eslint-plugin-promise": "^4.2.1"
+  }
 }
