@@ -30,7 +30,7 @@ const headerLinksStyle = theme => ({
   },
   listItem: {
     float: "left",
-    color: "inherit",
+    color: "white",
     position: "relative",
     display: "block",
     width: "auto",
@@ -58,7 +58,7 @@ const headerLinksStyle = theme => ({
     padding: "0 !important"
   },
   navLink: {
-    color: "inherit",
+    color: "white",
     position: "relative",
     padding: "0.9375rem",
     fontWeight: "400",
@@ -69,7 +69,7 @@ const headerLinksStyle = theme => ({
     margin: "0px",
     display: "inline-flex",
     "&:hover,&:focus": {
-      color: "inherit"
+      color: "white"
     },
     "& .fab,& .far,& .fal,& .fas,& .material-icons": {
       position: "relative",
@@ -127,7 +127,7 @@ const headerLinksStyle = theme => ({
     }
   },
   notificationNavLink: {
-    color: "inherit",
+    color: "white",
     padding: "0.9375rem",
     fontWeight: "400",
     fontSize: "12px",
@@ -149,7 +149,7 @@ const headerLinksStyle = theme => ({
   },
   navLinkActive: {
     "&, &:hover, &:focus,&:active ": {
-      color: "inherit",
+      color: "white",
       backgroundColor: "rgba(" + hexToRgb(whiteColor) + ", 0.1)"
     }
   },

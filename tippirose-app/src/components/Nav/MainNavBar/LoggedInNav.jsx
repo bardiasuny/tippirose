@@ -81,7 +81,6 @@ function LoggedInNav({ logout, history, displayName, admin, vip }) {
     <Fragment>
       <Header
         brand="TIPPIROSE"
-        changeColorOnScroll="dark"
         links={
           <HeaderLinks
             dropdownHoverColor="dark"
@@ -92,160 +91,14 @@ function LoggedInNav({ logout, history, displayName, admin, vip }) {
             navAvatar={classes.navAvatar}
             vip={vip}
           />
-          // <div className={classes.navWrapper + " mainNav-desktop"}>
-          //   <NavLink exact to="/">
-          //     <div class={classes.navItem}>
-          //       <p className="white">
-          //         <i class="fas fa-home pv1"></i> Home
-          //       </p>
-          //     </div>
-          //   </NavLink>
-
-          //   <NavLink to="/shop/category/shirt">
-          //     <div class={classes.navItem}>
-          //       <p className="white">
-          //         <i className="far fa-address-card pv2"></i>Shop
-          //       </p>
-          //     </div>
-          //   </NavLink>
-          //   <div className={classes.navItem}>
-          //     <p className="white">
-          //       <i class="far fa-address-book pv2"></i>
-          //       Contact
-          //     </p>
-          //   </div>
-          //   {admin && (
-          //     <NavLink to={admin && "/admin"}>
-          //       <div class={classes.navItem}>
-          //         <p className="white">{admin && "Admin"}</p>
-          //       </div>
-          //     </NavLink>
-          //   )}
-
-          //   <div>
-          //     <CustomDropdown
-          //       left
-          //       caret={true}
-          //       hoverColor="dark"
-          //       dropdownHeader="Dropdown Header"
-          //       buttonText={
-          //         <div className={classes.navAvatar}>
-          //           <span className="white">{displayName && displayName}</span>
-          //           <Avatar className="mainColorBg mv2">
-          //             <h4>
-          //               {displayName && displayName.match(/\b(\w)/g).join("")}
-          //             </h4>
-          //           </Avatar>
-          //         </div>
-          //       }
-          //       buttonProps={{
-          //         className: "",
-
-          //         color: "transparent"
-          //       }}
-          //       dropdownList={[
-          //         "Me",
-          //         <p onClick={() => logout(history)}>Sign Out </p>
-          //       ]}
-          //     />
-          //   </div>
-          //   <div>
-          //     <Button color="transparent">
-          //       <p className="white">
-          //         <ShoppingCart /> 0 items
-          //       </p>
-          //     </Button>
-          //   </div>
-          // </div>
         }
         fixed
-        color="transparent"
-        changeColorOnScroll={{
-          height: 100,
-          color: "rose"
-        }}
+        // changeColorOnScroll={{
+        //   height: 100,
+        //   color: "white"
+        // }}
       />
-      {/* <div className="mainNav-mobile">
-        
-        <div className={classes.navWrapper}>
-          <div
-            class={classes.navItem}
-            onClick={() => (drower ? setDrower(false) : setDrower(true))}
-          >
-            <h1 className="white">
-              {drower ? (
-                <MenuOpenIcon fontSize="large" />
-              ) : (
-                <MenuIcon fontSize="large" />
-              )}
-            </h1>
-          </div>
-        </div>
-        <Hidden mdUp>
-          <SwipeableDrawer
-            open={drower}
-            onClose={() => setDrower(false)}
-            disableBackdropTransition={!iOS}
-            disableDiscovery={iOS}
-          >
-            <div
-              onClick={() => setDrower(false)}
-              style={{
-                padding: "20px 0 0 20px",
-                display: "flex",
-                alignItems: "center"
-              }}
-              className="mainColor link subP"
-            >
-              <ArrowBackIosIcon />
-              <span style={{ margin: -5 }}>CLOSE</span>
-            </div>
-            <div
-              className={classes.list}
-              role="presentation"
-              style={{ width: "100vw" }}
-            >
-              <div
-                className="center_component"
-                style={{ flexDirection: "column" }}
-              >
-                <h4>TIPPIROSE</h4>
-                <Button color="white" round onClick={() => logout(history)}>
-                  <ExitToAppIcon />
-                  <h3>LOGOUT</h3>
-                </Button>
-              </div>
-              <List>
-                {["Inbox", "Starred", "Send email", "Drafts"].map(
-                  (text, index) => (
-                    <ListItem button key={text}>
-                      <ListItemIcon>
-                        {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                      </ListItemIcon>
-                      <ListItemText primary={text} />
-                    </ListItem>
-                  )
-                )}
-              </List>
-              <Divider />
-              <div style={{ background: "#9c27b0", height: "100%" }}>
-                <List>
-                  {["All mail", "Trash", "Spam"].map((text, index) => (
-                    <ListItem button key={text}>
-                      <ListItemIcon className="white">
-                        <p className="white">
-                          {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </p>
-                      </ListItemIcon>
-                      <ListItemText className="white" primary={text} />
-                    </ListItem>
-                  ))}
-                </List>
-              </div>
-            </div>
-          </SwipeableDrawer>
-        </Hidden>
-      </div> */}
+
     </Fragment>
   );
 }

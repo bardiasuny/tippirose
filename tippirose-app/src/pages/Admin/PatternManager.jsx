@@ -20,6 +20,8 @@ import {
 } from "../Admin/Product/productActions";
 import { withFirestore } from "react-redux-firebase";
 import PhotoOrganizer from "features/PhotoInput/PhotoOrganizer";
+import TemplateInputSampleImage from "features/PhotoInput/TemplateInputSampleImage";
+import TemplateOrganizer from "features/PhotoInput/TemplateOrganizer";
 
 const actions = {
   addPatternTemplate,
@@ -37,6 +39,7 @@ const useStyles = makeStyles(style);
 function PatternManager({ addPatternTemplate, getProductPatterns, patterns }) {
   const classes = useStyles();
   const [template, setTemplate] = useState([]);
+  const [templateSampleImage, setTemplateSampleImage] = useState([]);
   const [openAddBox, setOpenAddBox] = useState(false);
   const [templateName, setTemplateName] = useState("");
   const [error, setError] = useState("");
@@ -48,6 +51,10 @@ function PatternManager({ addPatternTemplate, getProductPatterns, patterns }) {
     };
     getTemplate();
   }, []);
+
+  const handleDelete = template => {
+     
+  };
 
   const onPetternSubmit = async () => {
     const templatePureName = templateName.toLowerCase();
@@ -61,7 +68,11 @@ function PatternManager({ addPatternTemplate, getProductPatterns, patterns }) {
           setError("Name Already exist");
           setAvailable(true);
         } else {
-          await addPatternTemplate(template, templatePureName);
+          await addPatternTemplate(
+            template,
+            templateSampleImage,
+            templatePureName
+          );
           await getProductPatterns();
           setError("");
           setTemplateName("");
@@ -106,9 +117,9 @@ function PatternManager({ addPatternTemplate, getProductPatterns, patterns }) {
         </Button>
       </div>
       <div className=" p3">
-        <PhotoOrganizer
-          imagesAll={patterns}
-          //handleDelete={handleDelete}
+        <TemplateOrganizer
+          templates={patterns}
+          handleDelete={handleDelete}
           withButton
           //handleSetMainImage={handleSetMainImage}
           //initialValues={initialValues}
@@ -135,8 +146,14 @@ function PatternManager({ addPatternTemplate, getProductPatterns, patterns }) {
               </div>
 
               <br />
+              <div className="flex_row ">
+                <TemplateInput setTemplate={setTemplate} template={template} />
+                <TemplateInputSampleImage
+                  setTemplateSampleImage={setTemplateSampleImage}
+                  templateSampleImage={templateSampleImage}
+                />
+              </div>
 
-              <TemplateInput setTemplate={setTemplate} template={template} />
               <br />
               {error && <MuiAlert severity="error">{error}</MuiAlert>}
               <div class="flex_row">

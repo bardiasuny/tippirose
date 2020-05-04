@@ -8,6 +8,7 @@
   */
 var svgToPng = function (svgText, margin, fill) {
     // convert an svg text to png using the browser
+    console.log('savePNG')
     return new Promise(function (resolve, reject) {
         try {
             // can use the domUrl function from the browser
@@ -41,18 +42,19 @@ var svgToPng = function (svgText, margin, fill) {
             var svg = new Blob([svgText], {
                 type: "image/svg+xml;base64"
             });
-
+            console.log( 'SVG', svg)
             // create a dom object for that image
             var url = domUrl.createObjectURL(svg);
-
+            console.log( 'SVG URL', url)
             // create a new image to hold it the converted type
             var img = new Image;
-
+            console.log( 'ONLOAD', img)
             // when the image is loaded we can get it as base64 url
             img.onload = function () {
                 // draw it to the canvas
+               
                 ctx.drawImage(this, margin, margin);
-
+                
                 // if it needs some styling, we need a new canvas
                 if (fill) {
                     var styled = document.createElement("canvas");
@@ -74,6 +76,7 @@ var svgToPng = function (svgText, margin, fill) {
                 domUrl.revokeObjectURL(url);
                 // now we can resolve the promise, passing the base64 url
                 resolve(canvas.toDataURL("image/png"));
+                console.log(canvas.toDataURL("image/png"))
             };
 
             // load the image

@@ -13,7 +13,7 @@ function LogoNav() {
   return (
     <Fragment>
       <Link to="/">
-        <h4 className="white">TIPPIROSE</h4>
+        <h4 style={{color: "white"}}>TIPPIROSEadf</h4>
       </Link>
     </Fragment>
   );

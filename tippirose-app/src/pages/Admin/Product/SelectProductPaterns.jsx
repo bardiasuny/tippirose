@@ -44,7 +44,7 @@ function SelectProductPaterns({ patterns, handlePattern, productPatterns }) {
                 <div class="">
                   <img
                     style={{ width: "100px", padding: "10px" }}
-                    src={pattern.url}
+                    src={pattern.sampleImage}
                   />
                   <br />
 

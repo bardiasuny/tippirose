@@ -140,7 +140,7 @@ function AddProduct({
     if (product.category) {
       dispatch(asyncActionStart());
       await addProduct(product, allImages, initialValues);
-      console.log(allImages)
+      console.log(allImages);
       await getProductImages(match.params.id);
       setImages([]);
       const cat = product.category && product.category.toLowerCase();

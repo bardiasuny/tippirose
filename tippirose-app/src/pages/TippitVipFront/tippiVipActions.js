@@ -73,13 +73,17 @@ export const activateProduct = (product, userData, user) => async (
 
         if (res.data === 'match') {
             window.location.reload()
+        }else{
+            return "This is not a vlid secret key!"
         }
         // dispatch({ type: FETCH_PRODUCT_VIP_DASHBOARD, payload: res.data })
 
 
     } catch (err) {
         console.log(err)
+
     }
+
 }
 
 

@@ -66,8 +66,8 @@ export default function Header(props) {
   return (
     <AppBar className={appBarClasses}>
       <Toolbar className={classes.container}>
-        <Button className={classes.title}>
-          <Link to="/">{brand}</Link>
+        <Button style={{color: "white"}}>
+          <Link to="/" style={{color: "white", fontSize: 20}}>{brand}</Link>
         </Button>
         <Hidden smDown implementation="css" className={classes.hidden}>
           <div className={classes.collapse}>{links}</div>

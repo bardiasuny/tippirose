@@ -8,19 +8,26 @@ import Button from "components/CustomButtons/Button";
 import { connect } from "react-redux";
 import { activateProduct } from "./tippiVipActions";
 import { Container } from "@material-ui/core";
+import { useState } from "react";
 
 const actions = {
-  activateProduct
+  activateProduct,
 };
 
 function TippiProductActivation({
   handleSubmit,
   product,
   activateProduct,
-  profile
+  profile,
 }) {
-  const handleActivation = async userData => {
-    await activateProduct(product, userData, profile);
+  const [error, setError] = useState(null);
+
+  const handleActivation = async (userData) => {
+    const activationRes = await activateProduct(product, userData, profile);
+
+    if (activationRes) {
+      setError(activationRes);
+    }
   };
 
   return (
@@ -36,6 +43,10 @@ function TippiProductActivation({
             placeholder="Secret Key"
             value="category"
           />
+          <div className="center_component">
+            <p>{error}</p>
+          </div>
+
           <div className="center_component">
             <Button color="success" type="submit">
               Activate

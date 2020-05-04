@@ -64,7 +64,7 @@ function PatternMaker({
   const dosomething = (uniqueId, qrUrl) => {
     setTimeout(async () => {
       let pattern = document.getElementById("pattern");
-
+console.log(pattern)
       let qrcode = document.getElementById("qrcode");
 
       let pattern2 = document.getElementById("pattern2");
@@ -90,11 +90,12 @@ function PatternMaker({
       //   );
       console.log(uniqId);
       let svg = document.getElementById("Layer_1").outerHTML;
-
+console.log('svg' , svg)
       const uniqID = uniqId && uniqId;
       const uniqURL = uniqUrl && uniqUrl;
       svgToPng(svg)
         .then(async data => {
+          console.log("HEEEERRREE")
           await orderProductMakeVip(
             data,
             product,
@@ -104,14 +105,14 @@ function PatternMaker({
             uniqueId,
             qrUrl
           );
-
+          console.log(" AFTER HEEEERRREE")
           var a = document.createElement("a");
           a.download = "template.png";
           a.href = data;
           a.click();
         })
         .catch(err => console.error(err));
-      setOpenPatternMaker(false);
+      //setOpenPatternMaker(false);
     }, 3000);
   };
 

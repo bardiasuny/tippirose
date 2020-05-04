@@ -233,7 +233,11 @@ function PhotoTable({
                               <div className="flex_row">
                                 <img
                                   style={{ width: 30, margin: "5px 10x" }}
-                                  src={pattern.url}
+                                  src={
+                                    pattern.sampleImage
+                                      ? pattern.sampleImage
+                                      : pattern.url
+                                  }
                                   alt="pattern"
                                 />
                                 {pattern.name}

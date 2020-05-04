@@ -58,9 +58,9 @@ export const addProduct = (product, images, initialValues) => async (
               null,
               options
             );
-            console.log('UploadedFile', UploadedFile)
-            let downloadURL = await UploadedFile.uploadTaskSnapshot.ref.getDownloadURL()
-console.log('downloadURL', downloadURL)
+            console.log("UploadedFile", UploadedFile);
+            let downloadURL = await UploadedFile.uploadTaskSnapshot.ref.getDownloadURL();
+            console.log("downloadURL", downloadURL);
             firebase
               .firestore()
               .collection("products")
@@ -78,7 +78,7 @@ console.log('downloadURL', downloadURL)
 
           //SAVING ARRAY OF Templates
 
-          console.log('docRef', docRef.id);
+          console.log("docRef", docRef.id);
           if (imageUrls.length > 0) {
             const productQuery = await firebase
               .firestore()
@@ -112,7 +112,6 @@ console.log('downloadURL', downloadURL)
         });
     } else {
       try {
-        console.log("HEEEERERERERER");
         await firebase
           .firestore()
           .collection("products")
@@ -165,18 +164,17 @@ console.log('downloadURL', downloadURL)
   }
 };
 
-export const addPatternTemplate = (template, templateName) => async (
-  dispatch,
-  getState,
-  { getFirebase, getFirestore }
-) => {
+export const addPatternTemplate = (
+  template,
+  templateSampleImage,
+  templateName
+) => async (dispatch, getState, { getFirebase, getFirestore }) => {
   const firebase = getFirebase();
   const firestore = getFirestore();
 
   try {
-    console.log(template);
-    console.log(templateName);
-    const path = `templates/${templateName}`;
+    const path = `templates/${templateName}/${templateName}`;
+    const pathSample = `templates/${templateName}/${templateName}-sample`;
     const options = {
       name: templateName
     };
@@ -189,13 +187,22 @@ export const addPatternTemplate = (template, templateName) => async (
     );
     let downloadURL = await UploadedFile.uploadTaskSnapshot.ref.getDownloadURL();
 
+    let UploadedSampleImage = await firebase.uploadFile(
+      pathSample,
+      templateSampleImage[0],
+      null,
+      options
+    );
+    let sampleImageDownloadURL = await UploadedSampleImage.uploadTaskSnapshot.ref.getDownloadURL();
+
     await firebase
       .firestore()
       .collection("patterns")
       .doc(templateName)
       .set({
         name: templateName,
-        url: downloadURL
+        url: downloadURL,
+        sampleImage: sampleImageDownloadURL
       });
   } catch (err) {
     console.log(err);
@@ -319,8 +326,7 @@ export const getProductImagesWithCat = (category, productID) => async (
 ) => {
   dispatch(asyncActionStart());
   try {
-
-    const firebase = getFirebase()
+    const firebase = getFirebase();
     if (productID && category) {
       let imagesCollection = [];
 
@@ -333,7 +339,7 @@ export const getProductImagesWithCat = (category, productID) => async (
         .collection("photos")
         .orderBy("name")
         .get();
-    
+
       for (let i = 0; i < productImages.docs.length; i++) {
         const productImage = productImages.docs[i].data();
         imagesCollection.push({
@@ -344,7 +350,10 @@ export const getProductImagesWithCat = (category, productID) => async (
         });
       }
 
-      dispatch({ type: FETCH_PRODUCT_IMAGES, payload: { img: imagesCollection } });
+      dispatch({
+        type: FETCH_PRODUCT_IMAGES,
+        payload: { img: imagesCollection }
+      });
     } else {
       dispatch({ type: FETCH_PRODUCT_IMAGES, payload: { img: [] } });
     }

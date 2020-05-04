@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-import ModernContainer from "../../components/ModernContainer/ModernContainer";
+import ModernContainer from "components/ModernContainer/ModernContainer";
 import SubscribeEmail from "../../features/SubscribeEmail/SubscribeEmail";
 import { Button, Divider, Grid } from "@material-ui/core";
 import { toastr } from "react-redux-toastr";
@@ -11,8 +11,8 @@ import Skeleton from "@material-ui/lab/Skeleton";
 
 import AboutTippi from "../../features/Shop/About/AboutTippi";
 import GridContainer from "../../components/Grid/GridContainer";
-import Card from "../../components/Card/Card";
-import CardBody from "../../components/Card/CardBody";
+import Card from "components/Card/Card";
+import CardBody from "components/Card/CardBody";
 import { Link } from "react-router-dom";
 import NavBar from "components/Nav/MainNavBar/NavBar";
 import MainFooter from "features/Footer/MainFooter";
@@ -20,12 +20,10 @@ import MainFooter from "features/Footer/MainFooter";
 const style = {};
 
 const useStyles = makeStyles(style);
-
+const image = require('../../assets/img/tippi_header.png')
 function Homepage() {
   const classes = useStyles();
-  const headerImage =
-    "https://www.comma-store.eu/on/demandware.static/-/Sites-commaEU-Library/default/dwa69a7b98/contentassets/2020/homepage/01/01_Mainteaser_20200127_04-co-xl.jpg";
-
+  const headerImage = image
   const toast = input => {
     toastr[input]("OoPS!!", "somthing went wrong, Please try again");
   };

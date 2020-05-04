@@ -5,23 +5,25 @@ import DropZoneInput from "./DropZoneInput";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "../../components/CustomButtons/Button";
 import DropTemplateZone from "./DropTemplateZone";
-import CheckIcon from "@material-ui/icons/Check";
-
+import DropTemplateSampleImage from "./DropTemplateSampleImage";
 const style = {};
 
 const useStyles = makeStyles(style);
 
-function TemplateInput({ setTemplate, template }) {
+function TemplateInputSampleImage({
+  setTemplateSampleImage,
+  templateSampleImage
+}) {
   const [files, setFiles] = useState([]);
 
   const classes = useStyles();
 
   useEffect(() => {
-    setTemplate(files);
+    setTemplateSampleImage(files);
   }, [files]);
 
   const handleDeleteImage = fileID => {
-    setTemplate([]);
+    setTemplateSampleImage([]);
   };
 
   //   const handleMainImage = fileID => {
@@ -33,11 +35,14 @@ function TemplateInput({ setTemplate, template }) {
 
   return (
     <Fragment>
-      <DropTemplateZone setFiles={setFiles} files={files} />
+      <DropTemplateSampleImage setFiles={setFiles} files={files} />
       <div style={{ display: "flex", flexWrap: "wrap" }}>
-        {template && template[0] && (
+        {templateSampleImage && templateSampleImage[0] && (
           <div className="flex_column justify_end p2">
-            <CheckIcon style={{ fontSize: 30 }} />
+            <img
+              style={{ width: 100, height: "auto" }}
+              src={templateSampleImage[0].preview}
+            />
 
             <div>
               <Button
@@ -54,4 +59,4 @@ function TemplateInput({ setTemplate, template }) {
     </Fragment>
   );
 }
-export default TemplateInput;
+export default TemplateInputSampleImage;

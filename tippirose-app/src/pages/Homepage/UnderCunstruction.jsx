@@ -18,8 +18,8 @@ const useStyles = makeStyles(style);
 
 const actions = { openModal };
 
-const mapState = state => ({
-  auth: state.firebase.auth
+const mapState = (state) => ({
+  auth: state.firebase.auth,
 });
 
 function UnderConstruction({ openModal, auth, history }) {

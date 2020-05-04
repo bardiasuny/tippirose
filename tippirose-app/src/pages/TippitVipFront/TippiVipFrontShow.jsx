@@ -61,15 +61,15 @@ function TippiVipFrontShow({
     newLinks[index] = visitedLink;
     await addLinkViewCount(newLinks, template.name);
   };
-
+console.log(template)
   if (loading) return <Loading />;
   return (
     <Fragment>
       <div
-        className="center_component flex_column"
+        className="center_component flex_column vip_front_link_Wrapper" 
         style={{
           background: `${template.bgColor}`,
-          height: "100vh",
+          minHeight: "100vh",
           justifyContent: "flex-start"
         }}
       >
@@ -96,6 +96,13 @@ function TippiVipFrontShow({
                 </div>
 
                 <LinksItems links={template && template.links} />
+                <div class="vip_show_bottom_logo">
+                  <Link to="/home">
+                  <h2 style={{color: "white"}}>TIPPIROSE</h2>
+                  </Link>
+                   
+                </div>
+               
               </Fragment>
             ) : (
               <Fragment>
