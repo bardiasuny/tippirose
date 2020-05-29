@@ -1,554 +1,68 @@
-[debug] [2020-05-04T18:19:50.310Z] ----------------------------------------------------------------------
-[debug] [2020-05-04T18:19:50.311Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
-[debug] [2020-05-04T18:19:50.311Z] CLI Version:   7.15.0
-[debug] [2020-05-04T18:19:50.311Z] Platform:      darwin
-[debug] [2020-05-04T18:19:50.311Z] Node Version:  v12.16.1
-[debug] [2020-05-04T18:19:50.312Z] Time:          Mon May 04 2020 19:19:50 GMT+0100 (British Summer Time)
-[debug] [2020-05-04T18:19:50.312Z] ----------------------------------------------------------------------
-[debug] [2020-05-04T18:19:50.312Z] 
-[debug] [2020-05-04T18:19:50.322Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2020-05-04T18:19:50.322Z] > authorizing via signed-in user
-[debug] [2020-05-04T18:19:50.322Z] [iam] checking project tippirose-london for permissions ["firebase.projects.get"]
-[debug] [2020-05-04T18:19:50.323Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
-[debug] [2020-05-04T18:19:50.324Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+[debug] [2020-05-28T17:11:06.230Z] ----------------------------------------------------------------------
+[debug] [2020-05-28T17:11:06.231Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] [2020-05-28T17:11:06.231Z] CLI Version:   7.15.0
+[debug] [2020-05-28T17:11:06.231Z] Platform:      darwin
+[debug] [2020-05-28T17:11:06.231Z] Node Version:  v12.16.1
+[debug] [2020-05-28T17:11:06.235Z] Time:          Thu May 28 2020 18:11:06 GMT+0100 (British Summer Time)
+[debug] [2020-05-28T17:11:06.235Z] ----------------------------------------------------------------------
+[debug] [2020-05-28T17:11:06.235Z] 
+[debug] [2020-05-28T17:11:06.245Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-05-28T17:11:06.246Z] > authorizing via signed-in user
+[debug] [2020-05-28T17:11:06.246Z] [iam] checking project tippirose-london for permissions ["firebase.projects.get"]
+[debug] [2020-05-28T17:11:06.247Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-05-28T17:11:06.247Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
  <request body omitted>
-[debug] [2020-05-04T18:19:50.439Z] <<< HTTP RESPONSE 200
-[debug] [2020-05-04T18:19:50.462Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/tippirose-london:testIamPermissions  
+[debug] [2020-05-28T17:11:06.358Z] <<< HTTP RESPONSE 200
+[debug] [2020-05-28T17:11:06.601Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/tippirose-london:testIamPermissions  
 
-[debug] [2020-05-04T18:19:51.223Z] <<< HTTP RESPONSE 200
-[debug] [2020-05-04T18:19:51.224Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/tippirose-london  
+[debug] [2020-05-28T17:11:07.280Z] <<< HTTP RESPONSE 200
+[debug] [2020-05-28T17:11:07.281Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/tippirose-london  
  
-[debug] [2020-05-04T18:19:51.432Z] <<< HTTP RESPONSE 200
+[debug] [2020-05-28T17:11:07.570Z] <<< HTTP RESPONSE 200
 [info] 
 [info] === Serving from '/Users/bardiasuny/Coding/tippirose-complete/tippirose/tippirose-app'...
 [info] 
-[debug] [2020-05-04T18:19:51.436Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/tippirose-london/webApps/-/config  
+[debug] [2020-05-28T17:11:07.572Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/tippirose-london/webApps/-/config  
  
 [warn] ⚠  Your requested "node" version "8" doesn't match your global version "12"
 [info] ✔  functions: functions emulator started at http://localhost:5001
-[debug] [2020-05-04T18:19:52.143Z] <<< HTTP RESPONSE 200
+[debug] [2020-05-28T17:11:08.270Z] <<< HTTP RESPONSE 200
 [info] i  functions: Watching "/Users/bardiasuny/Coding/tippirose-complete/tippirose/tippirose-app/functions" for Cloud Functions...
-[debug] [2020-05-04T18:19:52.173Z] [worker-pool] addWorker(~diagnostic~)
-[debug] [2020-05-04T18:19:52.173Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
-[debug] [2020-05-04T18:19:52.173Z] [worker-pool] submitWork(triggerId=)
-[debug] [2020-05-04T18:19:52.173Z] [worker-~diagnostic~-76131f3e-a98a-4486-9697-28fd08617a5d]: Assigning socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33701.sock
-[debug] [2020-05-04T18:19:52.174Z] [worker-~diagnostic~-76131f3e-a98a-4486-9697-28fd08617a5d]: BUSY
+[debug] [2020-05-28T17:11:08.346Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-05-28T17:11:08.347Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-05-28T17:11:08.347Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-05-28T17:11:08.347Z] [worker-~diagnostic~-4a1d9d73-209f-4cb1-9641-6100c27dc878]: Assigning socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_23325.sock
+[debug] [2020-05-28T17:11:08.347Z] [worker-~diagnostic~-4a1d9d73-209f-4cb1-9641-6100c27dc878]: BUSY
 [info] i  hosting: Serving hosting files from: build
 [info] ✔  hosting: Local server: http://localhost:5000
-[debug] [2020-05-04T18:19:52.384Z] [runtime-status] [33701] Functions runtime initialized. {"cwd":"/Users/bardiasuny/Coding/tippirose-complete/tippirose/tippirose-app/functions","node_version":"12.16.1"}
-[debug] [2020-05-04T18:19:52.385Z] [runtime-status] [33701] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
-[debug] [2020-05-04T18:19:52.388Z] [runtime-status] [33701] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/bardiasuny/Coding/tippirose-complete/tippirose/tippirose-app/node_modules/firebase-admin/lib/index.js"}
-[debug] [2020-05-04T18:19:52.391Z] [runtime-status] [33701] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/bardiasuny/Coding/tippirose-complete/tippirose/tippirose-app/node_modules/firebase-functions/lib/index.js"}
-[debug] [2020-05-04T18:19:52.392Z] [runtime-status] [33701] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/bardiasuny/Coding/tippirose-complete/tippirose/tippirose-app/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-05-28T17:11:08.565Z] [runtime-status] [23325] Functions runtime initialized. {"cwd":"/Users/bardiasuny/Coding/tippirose-complete/tippirose/tippirose-app/functions","node_version":"12.16.1"}
+[debug] [2020-05-28T17:11:08.566Z] [runtime-status] [23325] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-05-28T17:11:08.568Z] [runtime-status] [23325] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/bardiasuny/Coding/tippirose-complete/tippirose/tippirose-app/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-05-28T17:11:08.569Z] [runtime-status] [23325] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/bardiasuny/Coding/tippirose-complete/tippirose/tippirose-app/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-05-28T17:11:08.570Z] [runtime-status] [23325] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/bardiasuny/Coding/tippirose-complete/tippirose/tippirose-app/node_modules/firebase-functions/lib/index.js"}
 [info] ✔  functions[app]: http function initialized (http://localhost:5001/tippirose-london/us-central1/app).
-[debug] [2020-05-04T18:19:52.837Z] [worker-~diagnostic~-76131f3e-a98a-4486-9697-28fd08617a5d]: IDLE
-[debug] [2020-05-04T18:19:59.889Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2020-05-04T18:19:59.889Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2020-05-04T18:19:59.889Z] Accepted request POST /tippirose-london/us-central1/app/account/get-vip-user-products --> app
-[debug] [2020-05-04T18:19:59.892Z] [worker-pool] addWorker(app)
-[debug] [2020-05-04T18:19:59.892Z] [worker-pool] Adding worker with key app, total=1
-[debug] [2020-05-04T18:19:59.892Z] [worker-pool] submitWork(triggerId=app)
-[debug] [2020-05-04T18:19:59.892Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: Assigning socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:19:59.892Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: BUSY
-[debug] [2020-05-04T18:20:00.109Z] [runtime-status] [33704] Functions runtime initialized. {"cwd":"/Users/bardiasuny/Coding/tippirose-complete/tippirose/tippirose-app/functions","node_version":"12.16.1"}
-[debug] [2020-05-04T18:20:00.110Z] [runtime-status] [33704] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
-[debug] [2020-05-04T18:20:00.111Z] [runtime-status] [33704] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/bardiasuny/Coding/tippirose-complete/tippirose/tippirose-app/node_modules/firebase-admin/lib/index.js"}
-[debug] [2020-05-04T18:20:00.112Z] [runtime-status] [33704] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/bardiasuny/Coding/tippirose-complete/tippirose/tippirose-app/node_modules/firebase-functions/lib/index.js"}
-[debug] [2020-05-04T18:20:00.113Z] [runtime-status] [33704] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/bardiasuny/Coding/tippirose-complete/tippirose/tippirose-app/node_modules/firebase-functions/lib/index.js"}
-[debug] [2020-05-04T18:20:00.526Z] [runtime-status] [33704] Trigger "app" has been found, beginning invocation!
+[debug] [2020-05-28T17:11:08.981Z] [worker-~diagnostic~-4a1d9d73-209f-4cb1-9641-6100c27dc878]: IDLE
+[debug] [2020-05-28T20:01:46.599Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-05-28T20:01:46.603Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-05-28T20:01:46.605Z] Accepted request GET /tippirose-london/us-central1/app/babel/parser/lib/index.js --> app
+[debug] [2020-05-28T20:01:46.622Z] [worker-pool] addWorker(app)
+[debug] [2020-05-28T20:01:46.622Z] [worker-pool] Adding worker with key app, total=1
+[debug] [2020-05-28T20:01:46.622Z] [worker-pool] submitWork(triggerId=app)
+[debug] [2020-05-28T20:01:46.622Z] [worker-app-e6b67db8-7d29-4e10-bada-075960c876e9]: Assigning socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_25483.sock
+[debug] [2020-05-28T20:01:46.623Z] [worker-app-e6b67db8-7d29-4e10-bada-075960c876e9]: BUSY
+[debug] [2020-05-28T20:01:47.116Z] [runtime-status] [25483] Functions runtime initialized. {"cwd":"/Users/bardiasuny/Coding/tippirose-complete/tippirose/tippirose-app/functions","node_version":"12.16.1"}
+[debug] [2020-05-28T20:01:47.116Z] [runtime-status] [25483] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-05-28T20:01:47.121Z] [runtime-status] [25483] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/bardiasuny/Coding/tippirose-complete/tippirose/tippirose-app/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-05-28T20:01:47.121Z] [runtime-status] [25483] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/bardiasuny/Coding/tippirose-complete/tippirose/tippirose-app/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-05-28T20:01:47.122Z] [runtime-status] [25483] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/bardiasuny/Coding/tippirose-complete/tippirose/tippirose-app/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-05-28T20:01:47.591Z] [runtime-status] [25483] Trigger "app" has been found, beginning invocation!
 [info] i  functions: Beginning execution of "app"
-[debug] [2020-05-04T18:20:00.526Z] [runtime-status] [33704] triggerDefinition {"httpsTrigger":{},"name":"app","entryPoint":"app"}
-[debug] [2020-05-04T18:20:00.526Z] [runtime-status] [33704] Running app in mode HTTPS
-[debug] [2020-05-04T18:20:00.529Z] [runtime-status] [33704] Attempting to listen to socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:20:00.531Z] [functions] Runtime ready! Sending request!
-[debug] [2020-05-04T18:20:00.549Z] [runtime-status] [33704] Ephemeral server handling POST request
-[debug] [2020-05-04T18:20:00.559Z] [runtime-status] [33704] Ephemeral server survived.
+[debug] [2020-05-28T20:01:47.592Z] [runtime-status] [25483] triggerDefinition {"httpsTrigger":{},"name":"app","entryPoint":"app"}
+[debug] [2020-05-28T20:01:47.592Z] [runtime-status] [25483] Running app in mode HTTPS
+[debug] [2020-05-28T20:01:47.595Z] [runtime-status] [25483] Attempting to listen to socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_25483.sock
+[debug] [2020-05-28T20:01:47.599Z] [functions] Runtime ready! Sending request!
+[debug] [2020-05-28T20:01:47.606Z] [runtime-status] [25483] Ephemeral server handling GET request
+[debug] [2020-05-28T20:01:47.613Z] [runtime-status] [25483] Ephemeral server survived.
 [info] i  functions: Finished "app" in ~1s
-[debug] [2020-05-04T18:20:00.815Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: IDLE
-[debug] [2020-05-04T18:20:00.815Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2020-05-04T18:20:00.923Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2020-05-04T18:20:00.923Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2020-05-04T18:20:00.923Z] Accepted request POST /tippirose-london/us-central1/app/account/fetch-all-templates --> app
-[debug] [2020-05-04T18:20:00.923Z] [worker-pool] submitWork(triggerId=app)
-[debug] [2020-05-04T18:20:00.924Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: Assigning socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:20:00.924Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: BUSY
-[debug] [2020-05-04T18:20:00.924Z] [runtime-status] [33704] Trigger "app" has been found, beginning invocation!
-[info] i  functions: Beginning execution of "app"
-[debug] [2020-05-04T18:20:00.924Z] [runtime-status] [33704] triggerDefinition {"httpsTrigger":{},"name":"app","entryPoint":"app"}
-[debug] [2020-05-04T18:20:00.924Z] [runtime-status] [33704] Running app in mode HTTPS
-[debug] [2020-05-04T18:20:00.925Z] [runtime-status] [33704] Attempting to listen to socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:20:00.925Z] [functions] Runtime ready! Sending request!
-[debug] [2020-05-04T18:20:00.927Z] [runtime-status] [33704] Ephemeral server handling POST request
-[debug] [2020-05-04T18:20:00.927Z] [runtime-status] [33704] Ephemeral server survived.
-[info] i  functions: Finished "app" in ~1s
-[debug] [2020-05-04T18:20:01.019Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: IDLE
-[debug] [2020-05-04T18:20:01.019Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2020-05-04T18:20:11.112Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2020-05-04T18:20:11.113Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2020-05-04T18:20:11.113Z] Accepted request POST /tippirose-london/us-central1/app/account/fetch-all-templates --> app
-[debug] [2020-05-04T18:20:11.113Z] [worker-pool] submitWork(triggerId=app)
-[debug] [2020-05-04T18:20:11.113Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: Assigning socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:20:11.113Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: BUSY
-[debug] [2020-05-04T18:20:11.113Z] [runtime-status] [33704] Trigger "app" has been found, beginning invocation!
-[info] i  functions: Beginning execution of "app"
-[debug] [2020-05-04T18:20:11.114Z] [runtime-status] [33704] triggerDefinition {"httpsTrigger":{},"name":"app","entryPoint":"app"}
-[debug] [2020-05-04T18:20:11.114Z] [runtime-status] [33704] Running app in mode HTTPS
-[debug] [2020-05-04T18:20:11.114Z] [runtime-status] [33704] Attempting to listen to socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:20:11.114Z] [functions] Runtime ready! Sending request!
-[debug] [2020-05-04T18:20:11.116Z] [runtime-status] [33704] Ephemeral server handling POST request
-[debug] [2020-05-04T18:20:11.117Z] [runtime-status] [33704] Ephemeral server survived.
-[info] i  functions: Finished "app" in ~1s
-[debug] [2020-05-04T18:20:11.228Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: IDLE
-[debug] [2020-05-04T18:20:11.228Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2020-05-04T18:20:13.646Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2020-05-04T18:20:13.646Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2020-05-04T18:20:13.646Z] Accepted request POST /tippirose-london/us-central1/app/account/get-vip-user-products --> app
-[debug] [2020-05-04T18:20:13.646Z] [worker-pool] submitWork(triggerId=app)
-[debug] [2020-05-04T18:20:13.646Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: Assigning socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:20:13.646Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: BUSY
-[debug] [2020-05-04T18:20:13.647Z] [runtime-status] [33704] Trigger "app" has been found, beginning invocation!
-[info] i  functions: Beginning execution of "app"
-[debug] [2020-05-04T18:20:13.647Z] [runtime-status] [33704] triggerDefinition {"httpsTrigger":{},"name":"app","entryPoint":"app"}
-[debug] [2020-05-04T18:20:13.647Z] [runtime-status] [33704] Running app in mode HTTPS
-[debug] [2020-05-04T18:20:13.647Z] [runtime-status] [33704] Attempting to listen to socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:20:13.648Z] [functions] Runtime ready! Sending request!
-[debug] [2020-05-04T18:20:13.649Z] [runtime-status] [33704] Ephemeral server handling POST request
-[debug] [2020-05-04T18:20:13.649Z] [runtime-status] [33704] Ephemeral server survived.
-[info] i  functions: Finished "app" in ~1s
-[debug] [2020-05-04T18:20:13.741Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: IDLE
-[debug] [2020-05-04T18:20:13.741Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2020-05-04T18:20:13.821Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2020-05-04T18:20:13.821Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2020-05-04T18:20:13.821Z] Accepted request POST /tippirose-london/us-central1/app/account/fetch-all-templates --> app
-[debug] [2020-05-04T18:20:13.821Z] [worker-pool] submitWork(triggerId=app)
-[debug] [2020-05-04T18:20:13.821Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: Assigning socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:20:13.821Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: BUSY
-[debug] [2020-05-04T18:20:13.821Z] [runtime-status] [33704] Trigger "app" has been found, beginning invocation!
-[info] i  functions: Beginning execution of "app"
-[debug] [2020-05-04T18:20:13.821Z] [runtime-status] [33704] triggerDefinition {"httpsTrigger":{},"name":"app","entryPoint":"app"}
-[debug] [2020-05-04T18:20:13.822Z] [runtime-status] [33704] Running app in mode HTTPS
-[debug] [2020-05-04T18:20:13.822Z] [runtime-status] [33704] Attempting to listen to socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:20:13.822Z] [functions] Runtime ready! Sending request!
-[debug] [2020-05-04T18:20:13.823Z] [runtime-status] [33704] Ephemeral server handling POST request
-[debug] [2020-05-04T18:20:13.824Z] [runtime-status] [33704] Ephemeral server survived.
-[info] i  functions: Finished "app" in ~1s
-[debug] [2020-05-04T18:20:13.911Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: IDLE
-[debug] [2020-05-04T18:20:13.911Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2020-05-04T18:20:20.144Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2020-05-04T18:20:20.145Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2020-05-04T18:20:20.145Z] Accepted request POST /tippirose-london/us-central1/app/account/assign-vip-template --> app
-[debug] [2020-05-04T18:20:20.145Z] [worker-pool] submitWork(triggerId=app)
-[debug] [2020-05-04T18:20:20.145Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: Assigning socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:20:20.145Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: BUSY
-[debug] [2020-05-04T18:20:20.145Z] [runtime-status] [33704] Trigger "app" has been found, beginning invocation!
-[info] i  functions: Beginning execution of "app"
-[debug] [2020-05-04T18:20:20.145Z] [runtime-status] [33704] triggerDefinition {"httpsTrigger":{},"name":"app","entryPoint":"app"}
-[debug] [2020-05-04T18:20:20.145Z] [runtime-status] [33704] Running app in mode HTTPS
-[debug] [2020-05-04T18:20:20.146Z] [runtime-status] [33704] Attempting to listen to socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:20:20.146Z] [functions] Runtime ready! Sending request!
-[debug] [2020-05-04T18:20:20.147Z] [runtime-status] [33704] Ephemeral server handling POST request
-[debug] [2020-05-04T18:20:20.149Z] [runtime-status] [33704] Ephemeral server survived.
-[info] i  functions: Finished "app" in ~1s
-[debug] [2020-05-04T18:20:20.313Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: IDLE
-[debug] [2020-05-04T18:20:20.313Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2020-05-04T18:20:20.387Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2020-05-04T18:20:20.387Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2020-05-04T18:20:20.387Z] Accepted request POST /tippirose-london/us-central1/app/account/get-vip-user-products --> app
-[debug] [2020-05-04T18:20:20.387Z] [worker-pool] submitWork(triggerId=app)
-[debug] [2020-05-04T18:20:20.387Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: Assigning socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:20:20.387Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: BUSY
-[debug] [2020-05-04T18:20:20.388Z] [runtime-status] [33704] Trigger "app" has been found, beginning invocation!
-[info] i  functions: Beginning execution of "app"
-[debug] [2020-05-04T18:20:20.388Z] [runtime-status] [33704] triggerDefinition {"httpsTrigger":{},"name":"app","entryPoint":"app"}
-[debug] [2020-05-04T18:20:20.388Z] [runtime-status] [33704] Running app in mode HTTPS
-[debug] [2020-05-04T18:20:20.388Z] [runtime-status] [33704] Attempting to listen to socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:20:20.389Z] [functions] Runtime ready! Sending request!
-[debug] [2020-05-04T18:20:20.390Z] [runtime-status] [33704] Ephemeral server handling POST request
-[debug] [2020-05-04T18:20:20.390Z] [runtime-status] [33704] Ephemeral server survived.
-[info] i  functions: Finished "app" in ~1s
-[debug] [2020-05-04T18:20:20.476Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: IDLE
-[debug] [2020-05-04T18:20:20.476Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2020-05-04T18:22:04.740Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2020-05-04T18:22:04.740Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2020-05-04T18:22:04.740Z] Accepted request POST /tippirose-london/us-central1/app/vip/get-user-product --> app
-[debug] [2020-05-04T18:22:04.740Z] [worker-pool] submitWork(triggerId=app)
-[debug] [2020-05-04T18:22:04.740Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: Assigning socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:22:04.740Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: BUSY
-[debug] [2020-05-04T18:22:04.740Z] [runtime-status] [33704] Trigger "app" has been found, beginning invocation!
-[info] i  functions: Beginning execution of "app"
-[debug] [2020-05-04T18:22:04.741Z] [runtime-status] [33704] triggerDefinition {"httpsTrigger":{},"name":"app","entryPoint":"app"}
-[debug] [2020-05-04T18:22:04.741Z] [runtime-status] [33704] Running app in mode HTTPS
-[debug] [2020-05-04T18:22:04.741Z] [runtime-status] [33704] Attempting to listen to socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:22:04.742Z] [functions] Runtime ready! Sending request!
-[debug] [2020-05-04T18:22:04.743Z] [runtime-status] [33704] Ephemeral server handling POST request
-[debug] [2020-05-04T18:22:04.744Z] [runtime-status] [33704] Ephemeral server survived.
-[info] i  functions: Finished "app" in ~1s
-[debug] [2020-05-04T18:22:04.927Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: IDLE
-[debug] [2020-05-04T18:22:04.928Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2020-05-04T18:22:14.279Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2020-05-04T18:22:14.279Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2020-05-04T18:22:14.279Z] Accepted request POST /tippirose-london/us-central1/app/user/activate-product --> app
-[debug] [2020-05-04T18:22:14.279Z] [worker-pool] submitWork(triggerId=app)
-[debug] [2020-05-04T18:22:14.279Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: Assigning socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:22:14.279Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: BUSY
-[debug] [2020-05-04T18:22:14.280Z] [runtime-status] [33704] Trigger "app" has been found, beginning invocation!
-[info] i  functions: Beginning execution of "app"
-[debug] [2020-05-04T18:22:14.281Z] [runtime-status] [33704] triggerDefinition {"httpsTrigger":{},"name":"app","entryPoint":"app"}
-[debug] [2020-05-04T18:22:14.281Z] [runtime-status] [33704] Running app in mode HTTPS
-[debug] [2020-05-04T18:22:14.281Z] [runtime-status] [33704] Attempting to listen to socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:22:14.281Z] [functions] Runtime ready! Sending request!
-[debug] [2020-05-04T18:22:14.282Z] [runtime-status] [33704] Ephemeral server handling POST request
-[debug] [2020-05-04T18:22:14.503Z] [runtime-status] [33704] Ephemeral server survived.
-[info] >  undefined
-[info] i  functions: Finished "app" in ~1s
-[debug] [2020-05-04T18:22:14.780Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: IDLE
-[debug] [2020-05-04T18:22:14.780Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2020-05-04T18:23:38.215Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2020-05-04T18:23:38.216Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2020-05-04T18:23:38.216Z] Accepted request POST /tippirose-london/us-central1/app/user/activate-product --> app
-[debug] [2020-05-04T18:23:38.216Z] [worker-pool] submitWork(triggerId=app)
-[debug] [2020-05-04T18:23:38.216Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: Assigning socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:23:38.216Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: BUSY
-[debug] [2020-05-04T18:23:38.216Z] [runtime-status] [33704] Trigger "app" has been found, beginning invocation!
-[info] i  functions: Beginning execution of "app"
-[debug] [2020-05-04T18:23:38.216Z] [runtime-status] [33704] triggerDefinition {"httpsTrigger":{},"name":"app","entryPoint":"app"}
-[debug] [2020-05-04T18:23:38.216Z] [runtime-status] [33704] Running app in mode HTTPS
-[debug] [2020-05-04T18:23:38.217Z] [runtime-status] [33704] Attempting to listen to socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:23:38.217Z] [functions] Runtime ready! Sending request!
-[debug] [2020-05-04T18:23:38.219Z] [runtime-status] [33704] Ephemeral server handling POST request
-[debug] [2020-05-04T18:23:38.219Z] [runtime-status] [33704] Ephemeral server survived.
-[info] >  undefined
-[info] i  functions: Finished "app" in ~1s
-[debug] [2020-05-04T18:23:38.303Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: IDLE
-[debug] [2020-05-04T18:23:38.304Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2020-05-04T18:24:46.663Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2020-05-04T18:24:46.663Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2020-05-04T18:24:46.663Z] Accepted request POST /tippirose-london/us-central1/app/vip/get-user-product --> app
-[debug] [2020-05-04T18:24:46.663Z] [worker-pool] submitWork(triggerId=app)
-[debug] [2020-05-04T18:24:46.663Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: Assigning socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:24:46.663Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: BUSY
-[debug] [2020-05-04T18:24:46.663Z] [runtime-status] [33704] Trigger "app" has been found, beginning invocation!
-[info] i  functions: Beginning execution of "app"
-[debug] [2020-05-04T18:24:46.664Z] [runtime-status] [33704] triggerDefinition {"httpsTrigger":{},"name":"app","entryPoint":"app"}
-[debug] [2020-05-04T18:24:46.664Z] [runtime-status] [33704] Running app in mode HTTPS
-[debug] [2020-05-04T18:24:46.664Z] [runtime-status] [33704] Attempting to listen to socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:24:46.664Z] [functions] Runtime ready! Sending request!
-[debug] [2020-05-04T18:24:46.666Z] [runtime-status] [33704] Ephemeral server handling POST request
-[debug] [2020-05-04T18:24:46.666Z] [runtime-status] [33704] Ephemeral server survived.
-[info] i  functions: Finished "app" in ~1s
-[debug] [2020-05-04T18:24:46.838Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: IDLE
-[debug] [2020-05-04T18:24:46.838Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2020-05-04T18:24:48.992Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2020-05-04T18:24:48.992Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2020-05-04T18:24:48.992Z] Accepted request POST /tippirose-london/us-central1/app/user/activate-product --> app
-[debug] [2020-05-04T18:24:48.992Z] [worker-pool] submitWork(triggerId=app)
-[debug] [2020-05-04T18:24:48.992Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: Assigning socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:24:48.992Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: BUSY
-[debug] [2020-05-04T18:24:48.993Z] [runtime-status] [33704] Trigger "app" has been found, beginning invocation!
-[info] i  functions: Beginning execution of "app"
-[debug] [2020-05-04T18:24:48.993Z] [runtime-status] [33704] triggerDefinition {"httpsTrigger":{},"name":"app","entryPoint":"app"}
-[debug] [2020-05-04T18:24:48.993Z] [runtime-status] [33704] Running app in mode HTTPS
-[debug] [2020-05-04T18:24:48.993Z] [runtime-status] [33704] Attempting to listen to socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:24:48.994Z] [functions] Runtime ready! Sending request!
-[debug] [2020-05-04T18:24:48.995Z] [runtime-status] [33704] Ephemeral server handling POST request
-[debug] [2020-05-04T18:24:48.995Z] [runtime-status] [33704] Ephemeral server survived.
-[info] >  23
-[info] i  functions: Finished "app" in ~1s
-[debug] [2020-05-04T18:24:49.074Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: IDLE
-[debug] [2020-05-04T18:24:49.074Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2020-05-04T18:27:44.498Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2020-05-04T18:27:44.498Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2020-05-04T18:27:44.498Z] Accepted request POST /tippirose-london/us-central1/app/vip/get-user-product --> app
-[debug] [2020-05-04T18:27:44.498Z] [worker-pool] submitWork(triggerId=app)
-[debug] [2020-05-04T18:27:44.498Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: Assigning socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:27:44.498Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: BUSY
-[debug] [2020-05-04T18:27:44.498Z] [runtime-status] [33704] Trigger "app" has been found, beginning invocation!
-[info] i  functions: Beginning execution of "app"
-[debug] [2020-05-04T18:27:44.499Z] [runtime-status] [33704] triggerDefinition {"httpsTrigger":{},"name":"app","entryPoint":"app"}
-[debug] [2020-05-04T18:27:44.499Z] [runtime-status] [33704] Running app in mode HTTPS
-[debug] [2020-05-04T18:27:44.499Z] [runtime-status] [33704] Attempting to listen to socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:27:44.500Z] [functions] Runtime ready! Sending request!
-[debug] [2020-05-04T18:27:44.501Z] [runtime-status] [33704] Ephemeral server handling POST request
-[debug] [2020-05-04T18:27:44.501Z] [runtime-status] [33704] Ephemeral server survived.
-[info] i  functions: Finished "app" in ~1s
-[debug] [2020-05-04T18:27:44.682Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: IDLE
-[debug] [2020-05-04T18:27:44.682Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2020-05-04T18:32:12.294Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2020-05-04T18:32:12.294Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2020-05-04T18:32:12.294Z] Accepted request POST /tippirose-london/us-central1/app/vip/get-user-product --> app
-[debug] [2020-05-04T18:32:12.294Z] [worker-pool] submitWork(triggerId=app)
-[debug] [2020-05-04T18:32:12.294Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: Assigning socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:32:12.294Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: BUSY
-[debug] [2020-05-04T18:32:12.294Z] [runtime-status] [33704] Trigger "app" has been found, beginning invocation!
-[info] i  functions: Beginning execution of "app"
-[debug] [2020-05-04T18:32:12.294Z] [runtime-status] [33704] triggerDefinition {"httpsTrigger":{},"name":"app","entryPoint":"app"}
-[debug] [2020-05-04T18:32:12.295Z] [runtime-status] [33704] Running app in mode HTTPS
-[debug] [2020-05-04T18:32:12.295Z] [runtime-status] [33704] Attempting to listen to socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:32:12.295Z] [functions] Runtime ready! Sending request!
-[debug] [2020-05-04T18:32:12.296Z] [runtime-status] [33704] Ephemeral server handling POST request
-[debug] [2020-05-04T18:32:12.296Z] [runtime-status] [33704] Ephemeral server survived.
-[info] i  functions: Finished "app" in ~1s
-[debug] [2020-05-04T18:32:12.508Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: IDLE
-[debug] [2020-05-04T18:32:12.508Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2020-05-04T18:32:16.425Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2020-05-04T18:32:16.425Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2020-05-04T18:32:16.425Z] Accepted request POST /tippirose-london/us-central1/app/user/activate-product --> app
-[debug] [2020-05-04T18:32:16.425Z] [worker-pool] submitWork(triggerId=app)
-[debug] [2020-05-04T18:32:16.425Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: Assigning socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:32:16.425Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: BUSY
-[debug] [2020-05-04T18:32:16.426Z] [runtime-status] [33704] Trigger "app" has been found, beginning invocation!
-[info] i  functions: Beginning execution of "app"
-[debug] [2020-05-04T18:32:16.426Z] [runtime-status] [33704] triggerDefinition {"httpsTrigger":{},"name":"app","entryPoint":"app"}
-[debug] [2020-05-04T18:32:16.426Z] [runtime-status] [33704] Running app in mode HTTPS
-[debug] [2020-05-04T18:32:16.426Z] [runtime-status] [33704] Attempting to listen to socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:32:16.427Z] [functions] Runtime ready! Sending request!
-[debug] [2020-05-04T18:32:16.427Z] [runtime-status] [33704] Ephemeral server handling POST request
-[debug] [2020-05-04T18:32:16.428Z] [runtime-status] [33704] Ephemeral server survived.
-[info] >  23
-[info] i  functions: Finished "app" in ~1s
-[debug] [2020-05-04T18:32:16.555Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: IDLE
-[debug] [2020-05-04T18:32:16.555Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2020-05-04T18:32:28.346Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2020-05-04T18:32:28.346Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2020-05-04T18:32:28.346Z] Accepted request POST /tippirose-london/us-central1/app/vip/get-user-product --> app
-[debug] [2020-05-04T18:32:28.346Z] [worker-pool] submitWork(triggerId=app)
-[debug] [2020-05-04T18:32:28.346Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: Assigning socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:32:28.346Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: BUSY
-[debug] [2020-05-04T18:32:28.347Z] [runtime-status] [33704] Trigger "app" has been found, beginning invocation!
-[info] i  functions: Beginning execution of "app"
-[debug] [2020-05-04T18:32:28.347Z] [runtime-status] [33704] triggerDefinition {"httpsTrigger":{},"name":"app","entryPoint":"app"}
-[debug] [2020-05-04T18:32:28.347Z] [runtime-status] [33704] Running app in mode HTTPS
-[debug] [2020-05-04T18:32:28.347Z] [runtime-status] [33704] Attempting to listen to socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:32:28.348Z] [functions] Runtime ready! Sending request!
-[debug] [2020-05-04T18:32:28.349Z] [runtime-status] [33704] Ephemeral server handling POST request
-[debug] [2020-05-04T18:32:28.349Z] [runtime-status] [33704] Ephemeral server survived.
-[info] i  functions: Finished "app" in ~1s
-[debug] [2020-05-04T18:32:28.525Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: IDLE
-[debug] [2020-05-04T18:32:28.525Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2020-05-04T18:32:31.576Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2020-05-04T18:32:31.576Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2020-05-04T18:32:31.577Z] Accepted request POST /tippirose-london/us-central1/app/user/activate-product --> app
-[debug] [2020-05-04T18:32:31.577Z] [worker-pool] submitWork(triggerId=app)
-[debug] [2020-05-04T18:32:31.577Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: Assigning socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:32:31.577Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: BUSY
-[debug] [2020-05-04T18:32:31.577Z] [runtime-status] [33704] Trigger "app" has been found, beginning invocation!
-[info] i  functions: Beginning execution of "app"
-[debug] [2020-05-04T18:32:31.577Z] [runtime-status] [33704] triggerDefinition {"httpsTrigger":{},"name":"app","entryPoint":"app"}
-[debug] [2020-05-04T18:32:31.577Z] [runtime-status] [33704] Running app in mode HTTPS
-[debug] [2020-05-04T18:32:31.578Z] [runtime-status] [33704] Attempting to listen to socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:32:31.578Z] [functions] Runtime ready! Sending request!
-[debug] [2020-05-04T18:32:31.579Z] [runtime-status] [33704] Ephemeral server handling POST request
-[debug] [2020-05-04T18:32:31.579Z] [runtime-status] [33704] Ephemeral server survived.
-[info] >  23
-[info] i  functions: Finished "app" in ~1s
-[debug] [2020-05-04T18:32:31.649Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: IDLE
-[debug] [2020-05-04T18:32:31.649Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2020-05-04T18:32:51.861Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2020-05-04T18:32:51.861Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2020-05-04T18:32:51.861Z] Accepted request POST /tippirose-london/us-central1/app/vip/get-user-product --> app
-[debug] [2020-05-04T18:32:51.861Z] [worker-pool] submitWork(triggerId=app)
-[debug] [2020-05-04T18:32:51.861Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: Assigning socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:32:51.861Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: BUSY
-[debug] [2020-05-04T18:32:51.862Z] [runtime-status] [33704] Trigger "app" has been found, beginning invocation!
-[info] i  functions: Beginning execution of "app"
-[debug] [2020-05-04T18:32:51.862Z] [runtime-status] [33704] triggerDefinition {"httpsTrigger":{},"name":"app","entryPoint":"app"}
-[debug] [2020-05-04T18:32:51.862Z] [runtime-status] [33704] Running app in mode HTTPS
-[debug] [2020-05-04T18:32:51.862Z] [runtime-status] [33704] Attempting to listen to socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:32:51.863Z] [functions] Runtime ready! Sending request!
-[debug] [2020-05-04T18:32:51.864Z] [runtime-status] [33704] Ephemeral server handling POST request
-[debug] [2020-05-04T18:32:51.864Z] [runtime-status] [33704] Ephemeral server survived.
-[info] i  functions: Finished "app" in ~1s
-[debug] [2020-05-04T18:32:52.069Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: IDLE
-[debug] [2020-05-04T18:32:52.069Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2020-05-04T18:32:55.068Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2020-05-04T18:32:55.068Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2020-05-04T18:32:55.068Z] Accepted request POST /tippirose-london/us-central1/app/vip/get-user-product --> app
-[debug] [2020-05-04T18:32:55.068Z] [worker-pool] submitWork(triggerId=app)
-[debug] [2020-05-04T18:32:55.068Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: Assigning socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:32:55.068Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: BUSY
-[debug] [2020-05-04T18:32:55.068Z] [runtime-status] [33704] Trigger "app" has been found, beginning invocation!
-[info] i  functions: Beginning execution of "app"
-[debug] [2020-05-04T18:32:55.069Z] [runtime-status] [33704] triggerDefinition {"httpsTrigger":{},"name":"app","entryPoint":"app"}
-[debug] [2020-05-04T18:32:55.069Z] [runtime-status] [33704] Running app in mode HTTPS
-[debug] [2020-05-04T18:32:55.069Z] [runtime-status] [33704] Attempting to listen to socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:32:55.069Z] [functions] Runtime ready! Sending request!
-[debug] [2020-05-04T18:32:55.070Z] [runtime-status] [33704] Ephemeral server handling POST request
-[debug] [2020-05-04T18:32:55.071Z] [runtime-status] [33704] Ephemeral server survived.
-[info] i  functions: Finished "app" in ~1s
-[debug] [2020-05-04T18:32:55.236Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: IDLE
-[debug] [2020-05-04T18:32:55.236Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2020-05-04T18:32:58.374Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2020-05-04T18:32:58.374Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2020-05-04T18:32:58.374Z] Accepted request POST /tippirose-london/us-central1/app/user/activate-product --> app
-[debug] [2020-05-04T18:32:58.374Z] [worker-pool] submitWork(triggerId=app)
-[debug] [2020-05-04T18:32:58.374Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: Assigning socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:32:58.374Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: BUSY
-[debug] [2020-05-04T18:32:58.374Z] [runtime-status] [33704] Trigger "app" has been found, beginning invocation!
-[info] i  functions: Beginning execution of "app"
-[debug] [2020-05-04T18:32:58.375Z] [runtime-status] [33704] triggerDefinition {"httpsTrigger":{},"name":"app","entryPoint":"app"}
-[debug] [2020-05-04T18:32:58.375Z] [runtime-status] [33704] Running app in mode HTTPS
-[debug] [2020-05-04T18:32:58.375Z] [runtime-status] [33704] Attempting to listen to socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:32:58.375Z] [functions] Runtime ready! Sending request!
-[debug] [2020-05-04T18:32:58.376Z] [runtime-status] [33704] Ephemeral server handling POST request
-[debug] [2020-05-04T18:32:58.377Z] [runtime-status] [33704] Ephemeral server survived.
-[info] >  2
-[info] i  functions: Finished "app" in ~1s
-[debug] [2020-05-04T18:32:58.406Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: IDLE
-[debug] [2020-05-04T18:32:58.406Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2020-05-04T18:33:53.103Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2020-05-04T18:33:53.103Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2020-05-04T18:33:53.103Z] Accepted request POST /tippirose-london/us-central1/app/vip/get-user-product --> app
-[debug] [2020-05-04T18:33:53.103Z] [worker-pool] submitWork(triggerId=app)
-[debug] [2020-05-04T18:33:53.103Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: Assigning socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:33:53.103Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: BUSY
-[debug] [2020-05-04T18:33:53.103Z] [runtime-status] [33704] Trigger "app" has been found, beginning invocation!
-[info] i  functions: Beginning execution of "app"
-[debug] [2020-05-04T18:33:53.103Z] [runtime-status] [33704] triggerDefinition {"httpsTrigger":{},"name":"app","entryPoint":"app"}
-[debug] [2020-05-04T18:33:53.103Z] [runtime-status] [33704] Running app in mode HTTPS
-[debug] [2020-05-04T18:33:53.104Z] [runtime-status] [33704] Attempting to listen to socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:33:53.104Z] [functions] Runtime ready! Sending request!
-[debug] [2020-05-04T18:33:53.106Z] [runtime-status] [33704] Ephemeral server handling POST request
-[debug] [2020-05-04T18:33:53.106Z] [runtime-status] [33704] Ephemeral server survived.
-[info] i  functions: Finished "app" in ~1s
-[debug] [2020-05-04T18:33:53.243Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: IDLE
-[debug] [2020-05-04T18:33:53.243Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2020-05-04T18:33:55.728Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2020-05-04T18:33:55.728Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2020-05-04T18:33:55.728Z] Accepted request POST /tippirose-london/us-central1/app/user/activate-product --> app
-[debug] [2020-05-04T18:33:55.728Z] [worker-pool] submitWork(triggerId=app)
-[debug] [2020-05-04T18:33:55.728Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: Assigning socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:33:55.728Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: BUSY
-[debug] [2020-05-04T18:33:55.729Z] [runtime-status] [33704] Trigger "app" has been found, beginning invocation!
-[info] i  functions: Beginning execution of "app"
-[debug] [2020-05-04T18:33:55.729Z] [runtime-status] [33704] triggerDefinition {"httpsTrigger":{},"name":"app","entryPoint":"app"}
-[debug] [2020-05-04T18:33:55.729Z] [runtime-status] [33704] Running app in mode HTTPS
-[debug] [2020-05-04T18:33:55.729Z] [runtime-status] [33704] Attempting to listen to socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:33:55.730Z] [functions] Runtime ready! Sending request!
-[debug] [2020-05-04T18:33:55.731Z] [runtime-status] [33704] Ephemeral server handling POST request
-[debug] [2020-05-04T18:33:55.731Z] [runtime-status] [33704] Ephemeral server survived.
-[info] >  as
-[info] i  functions: Finished "app" in ~1s
-[debug] [2020-05-04T18:33:55.812Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: IDLE
-[debug] [2020-05-04T18:33:55.812Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2020-05-04T18:34:57.047Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2020-05-04T18:34:57.047Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2020-05-04T18:34:57.047Z] Accepted request POST /tippirose-london/us-central1/app/account/get-vip-user-products --> app
-[debug] [2020-05-04T18:34:57.048Z] [worker-pool] submitWork(triggerId=app)
-[debug] [2020-05-04T18:34:57.048Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: Assigning socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:34:57.048Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: BUSY
-[debug] [2020-05-04T18:34:57.048Z] [runtime-status] [33704] Trigger "app" has been found, beginning invocation!
-[info] i  functions: Beginning execution of "app"
-[debug] [2020-05-04T18:34:57.049Z] [runtime-status] [33704] triggerDefinition {"httpsTrigger":{},"name":"app","entryPoint":"app"}
-[debug] [2020-05-04T18:34:57.049Z] [runtime-status] [33704] Running app in mode HTTPS
-[debug] [2020-05-04T18:34:57.049Z] [runtime-status] [33704] Attempting to listen to socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:34:57.049Z] [functions] Runtime ready! Sending request!
-[debug] [2020-05-04T18:34:57.050Z] [runtime-status] [33704] Ephemeral server handling POST request
-[debug] [2020-05-04T18:34:57.051Z] [runtime-status] [33704] Ephemeral server survived.
-[info] i  functions: Finished "app" in ~1s
-[debug] [2020-05-04T18:34:57.154Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: IDLE
-[debug] [2020-05-04T18:34:57.154Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2020-05-04T18:34:57.322Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2020-05-04T18:34:57.322Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2020-05-04T18:34:57.322Z] Accepted request POST /tippirose-london/us-central1/app/account/fetch-all-templates --> app
-[debug] [2020-05-04T18:34:57.322Z] [worker-pool] submitWork(triggerId=app)
-[debug] [2020-05-04T18:34:57.322Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: Assigning socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:34:57.322Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: BUSY
-[debug] [2020-05-04T18:34:57.322Z] [runtime-status] [33704] Trigger "app" has been found, beginning invocation!
-[info] i  functions: Beginning execution of "app"
-[debug] [2020-05-04T18:34:57.323Z] [runtime-status] [33704] triggerDefinition {"httpsTrigger":{},"name":"app","entryPoint":"app"}
-[debug] [2020-05-04T18:34:57.323Z] [runtime-status] [33704] Running app in mode HTTPS
-[debug] [2020-05-04T18:34:57.323Z] [runtime-status] [33704] Attempting to listen to socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:34:57.323Z] [functions] Runtime ready! Sending request!
-[debug] [2020-05-04T18:34:57.324Z] [runtime-status] [33704] Ephemeral server handling POST request
-[debug] [2020-05-04T18:34:57.324Z] [runtime-status] [33704] Ephemeral server survived.
-[info] i  functions: Finished "app" in ~1s
-[debug] [2020-05-04T18:34:57.420Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: IDLE
-[debug] [2020-05-04T18:34:57.420Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2020-05-04T18:36:16.893Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2020-05-04T18:36:16.893Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2020-05-04T18:36:16.893Z] Accepted request POST /tippirose-london/us-central1/app/vip/get-user-product --> app
-[debug] [2020-05-04T18:36:16.894Z] [worker-pool] submitWork(triggerId=app)
-[debug] [2020-05-04T18:36:16.894Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: Assigning socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:36:16.894Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: BUSY
-[debug] [2020-05-04T18:36:16.894Z] [runtime-status] [33704] Trigger "app" has been found, beginning invocation!
-[info] i  functions: Beginning execution of "app"
-[debug] [2020-05-04T18:36:16.894Z] [runtime-status] [33704] triggerDefinition {"httpsTrigger":{},"name":"app","entryPoint":"app"}
-[debug] [2020-05-04T18:36:16.894Z] [runtime-status] [33704] Running app in mode HTTPS
-[debug] [2020-05-04T18:36:16.894Z] [runtime-status] [33704] Attempting to listen to socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:36:16.895Z] [functions] Runtime ready! Sending request!
-[debug] [2020-05-04T18:36:16.896Z] [runtime-status] [33704] Ephemeral server handling POST request
-[debug] [2020-05-04T18:36:16.896Z] [runtime-status] [33704] Ephemeral server survived.
-[info] i  functions: Finished "app" in ~1s
-[debug] [2020-05-04T18:36:17.082Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: IDLE
-[debug] [2020-05-04T18:36:17.082Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2020-05-04T18:37:02.406Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2020-05-04T18:37:02.406Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2020-05-04T18:37:02.406Z] Accepted request POST /tippirose-london/us-central1/app/user/activate-product --> app
-[debug] [2020-05-04T18:37:02.406Z] [worker-pool] submitWork(triggerId=app)
-[debug] [2020-05-04T18:37:02.406Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: Assigning socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:37:02.406Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: BUSY
-[debug] [2020-05-04T18:37:02.407Z] [runtime-status] [33704] Trigger "app" has been found, beginning invocation!
-[info] i  functions: Beginning execution of "app"
-[debug] [2020-05-04T18:37:02.407Z] [runtime-status] [33704] triggerDefinition {"httpsTrigger":{},"name":"app","entryPoint":"app"}
-[debug] [2020-05-04T18:37:02.407Z] [runtime-status] [33704] Running app in mode HTTPS
-[debug] [2020-05-04T18:37:02.407Z] [runtime-status] [33704] Attempting to listen to socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:37:02.409Z] [functions] Runtime ready! Sending request!
-[debug] [2020-05-04T18:37:02.410Z] [runtime-status] [33704] Ephemeral server handling POST request
-[debug] [2020-05-04T18:37:02.410Z] [runtime-status] [33704] Ephemeral server survived.
-[info] >  57616
-[info] >  Hewrer
-[info] i  functions: Finished "app" in ~1s
-[debug] [2020-05-04T18:37:02.925Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: IDLE
-[debug] [2020-05-04T18:37:02.925Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[info] >   you are VIP
-[debug] [2020-05-04T18:37:04.255Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2020-05-04T18:37:04.255Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2020-05-04T18:37:04.255Z] Accepted request POST /tippirose-london/us-central1/app/vip/get-user-product --> app
-[debug] [2020-05-04T18:37:04.255Z] [worker-pool] submitWork(triggerId=app)
-[debug] [2020-05-04T18:37:04.255Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: Assigning socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:37:04.255Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: BUSY
-[debug] [2020-05-04T18:37:04.255Z] [runtime-status] [33704] Trigger "app" has been found, beginning invocation!
-[info] i  functions: Beginning execution of "app"
-[debug] [2020-05-04T18:37:04.255Z] [runtime-status] [33704] triggerDefinition {"httpsTrigger":{},"name":"app","entryPoint":"app"}
-[debug] [2020-05-04T18:37:04.255Z] [runtime-status] [33704] Running app in mode HTTPS
-[debug] [2020-05-04T18:37:04.256Z] [runtime-status] [33704] Attempting to listen to socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:37:04.256Z] [functions] Runtime ready! Sending request!
-[debug] [2020-05-04T18:37:04.257Z] [runtime-status] [33704] Ephemeral server handling POST request
-[debug] [2020-05-04T18:37:04.257Z] [runtime-status] [33704] Ephemeral server survived.
-[info] i  functions: Finished "app" in ~1s
-[debug] [2020-05-04T18:37:04.333Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: IDLE
-[debug] [2020-05-04T18:37:04.334Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2020-05-04T18:48:45.410Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2020-05-04T18:48:45.410Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2020-05-04T18:48:45.410Z] Accepted request POST /tippirose-london/us-central1/app/vip/get-user-product --> app
-[debug] [2020-05-04T18:48:45.410Z] [worker-pool] submitWork(triggerId=app)
-[debug] [2020-05-04T18:48:45.410Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: Assigning socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:48:45.410Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: BUSY
-[debug] [2020-05-04T18:48:45.410Z] [runtime-status] [33704] Trigger "app" has been found, beginning invocation!
-[info] i  functions: Beginning execution of "app"
-[debug] [2020-05-04T18:48:45.411Z] [runtime-status] [33704] triggerDefinition {"httpsTrigger":{},"name":"app","entryPoint":"app"}
-[debug] [2020-05-04T18:48:45.411Z] [runtime-status] [33704] Running app in mode HTTPS
-[debug] [2020-05-04T18:48:45.411Z] [runtime-status] [33704] Attempting to listen to socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:48:45.412Z] [functions] Runtime ready! Sending request!
-[debug] [2020-05-04T18:48:45.413Z] [runtime-status] [33704] Ephemeral server handling POST request
-[debug] [2020-05-04T18:48:45.413Z] [runtime-status] [33704] Ephemeral server survived.
-[info] i  functions: Finished "app" in ~1s
-[debug] [2020-05-04T18:48:45.671Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: IDLE
-[debug] [2020-05-04T18:48:45.671Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2020-05-04T18:50:54.433Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2020-05-04T18:50:54.433Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2020-05-04T18:50:54.433Z] Accepted request POST /tippirose-london/us-central1/app/vip/get-user-product --> app
-[debug] [2020-05-04T18:50:54.433Z] [worker-pool] submitWork(triggerId=app)
-[debug] [2020-05-04T18:50:54.433Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: Assigning socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:50:54.433Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: BUSY
-[debug] [2020-05-04T18:50:54.433Z] [runtime-status] [33704] Trigger "app" has been found, beginning invocation!
-[info] i  functions: Beginning execution of "app"
-[debug] [2020-05-04T18:50:54.434Z] [runtime-status] [33704] triggerDefinition {"httpsTrigger":{},"name":"app","entryPoint":"app"}
-[debug] [2020-05-04T18:50:54.434Z] [runtime-status] [33704] Running app in mode HTTPS
-[debug] [2020-05-04T18:50:54.434Z] [runtime-status] [33704] Attempting to listen to socketPath: /var/folders/cm/d6y_44792854z1r87szwb0x80000gn/T/fire_emu_33704.sock
-[debug] [2020-05-04T18:50:54.436Z] [functions] Runtime ready! Sending request!
-[debug] [2020-05-04T18:50:54.437Z] [runtime-status] [33704] Ephemeral server handling POST request
-[debug] [2020-05-04T18:50:54.437Z] [runtime-status] [33704] Ephemeral server survived.
-[info] i  functions: Finished "app" in ~1s
-[debug] [2020-05-04T18:50:54.599Z] [worker-app-e845639f-6609-4ab8-9adc-e5d17b148c14]: IDLE
-[debug] [2020-05-04T18:50:54.599Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-05-28T20:01:47.614Z] [worker-app-e6b67db8-7d29-4e10-bada-075960c876e9]: IDLE
+[debug] [2020-05-28T20:01:47.614Z] [work-queue] {"queueLength":0,"workRunningCount":0}

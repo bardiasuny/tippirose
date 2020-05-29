@@ -14,6 +14,8 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Cached from "@material-ui/icons/Cached";
 
 import Check from "@material-ui/icons/Check";
+
+import ArrowBackIos from "@material-ui/icons/ArrowBackIos";
 // core components
 import Accordion from "components/Accordion/Accordion.js";
 import GridContainer from "components/Grid/GridContainer.js";
@@ -34,7 +36,7 @@ function FilterSection() {
   const [priceRange, setPriceRange] = React.useState([101, 790]);
   const classes = useStyles();
 
-  const handleToggle = value => {
+  const handleToggle = (value) => {
     const currentIndex = checked.indexOf(value);
     const newChecked = [...checked];
     if (currentIndex === -1) {
@@ -97,7 +99,7 @@ function FilterSection() {
                     <br />
                     <div id="sliderRegular" className="slider-rose" />
                   </CardBody>
-                )
+                ),
               },
               {
                 title: "Clothing",
@@ -122,7 +124,7 @@ function FilterSection() {
                             icon={<Check className={classes.uncheckedIcon} />}
                             classes={{
                               checked: classes.checked,
-                              root: classes.checkRoot
+                              root: classes.checkRoot,
                             }}
                           />
                         }
@@ -140,7 +142,7 @@ function FilterSection() {
                             icon={<Check className={classes.uncheckedIcon} />}
                             classes={{
                               checked: classes.checked,
-                              root: classes.checkRoot
+                              root: classes.checkRoot,
                             }}
                           />
                         }
@@ -158,7 +160,7 @@ function FilterSection() {
                             icon={<Check className={classes.uncheckedIcon} />}
                             classes={{
                               checked: classes.checked,
-                              root: classes.checkRoot
+                              root: classes.checkRoot,
                             }}
                           />
                         }
@@ -176,7 +178,7 @@ function FilterSection() {
                             icon={<Check className={classes.uncheckedIcon} />}
                             classes={{
                               checked: classes.checked,
-                              root: classes.checkRoot
+                              root: classes.checkRoot,
                             }}
                           />
                         }
@@ -194,7 +196,7 @@ function FilterSection() {
                             icon={<Check className={classes.uncheckedIcon} />}
                             classes={{
                               checked: classes.checked,
-                              root: classes.checkRoot
+                              root: classes.checkRoot,
                             }}
                           />
                         }
@@ -212,7 +214,7 @@ function FilterSection() {
                             icon={<Check className={classes.uncheckedIcon} />}
                             classes={{
                               checked: classes.checked,
-                              root: classes.checkRoot
+                              root: classes.checkRoot,
                             }}
                           />
                         }
@@ -230,7 +232,7 @@ function FilterSection() {
                             icon={<Check className={classes.uncheckedIcon} />}
                             classes={{
                               checked: classes.checked,
-                              root: classes.checkRoot
+                              root: classes.checkRoot,
                             }}
                           />
                         }
@@ -248,7 +250,7 @@ function FilterSection() {
                             icon={<Check className={classes.uncheckedIcon} />}
                             classes={{
                               checked: classes.checked,
-                              root: classes.checkRoot
+                              root: classes.checkRoot,
                             }}
                           />
                         }
@@ -257,7 +259,7 @@ function FilterSection() {
                       />
                     </div>
                   </div>
-                )
+                ),
               },
               {
                 title: "Designer",
@@ -282,7 +284,7 @@ function FilterSection() {
                             icon={<Check className={classes.uncheckedIcon} />}
                             classes={{
                               checked: classes.checked,
-                              root: classes.checkRoot
+                              root: classes.checkRoot,
                             }}
                           />
                         }
@@ -300,7 +302,7 @@ function FilterSection() {
                             icon={<Check className={classes.uncheckedIcon} />}
                             classes={{
                               checked: classes.checked,
-                              root: classes.checkRoot
+                              root: classes.checkRoot,
                             }}
                           />
                         }
@@ -318,7 +320,7 @@ function FilterSection() {
                             icon={<Check className={classes.uncheckedIcon} />}
                             classes={{
                               checked: classes.checked,
-                              root: classes.checkRoot
+                              root: classes.checkRoot,
                             }}
                           />
                         }
@@ -336,7 +338,7 @@ function FilterSection() {
                             icon={<Check className={classes.uncheckedIcon} />}
                             classes={{
                               checked: classes.checked,
-                              root: classes.checkRoot
+                              root: classes.checkRoot,
                             }}
                           />
                         }
@@ -354,7 +356,7 @@ function FilterSection() {
                             icon={<Check className={classes.uncheckedIcon} />}
                             classes={{
                               checked: classes.checked,
-                              root: classes.checkRoot
+                              root: classes.checkRoot,
                             }}
                           />
                         }
@@ -372,7 +374,7 @@ function FilterSection() {
                             icon={<Check className={classes.uncheckedIcon} />}
                             classes={{
                               checked: classes.checked,
-                              root: classes.checkRoot
+                              root: classes.checkRoot,
                             }}
                           />
                         }
@@ -390,7 +392,7 @@ function FilterSection() {
                             icon={<Check className={classes.uncheckedIcon} />}
                             classes={{
                               checked: classes.checked,
-                              root: classes.checkRoot
+                              root: classes.checkRoot,
                             }}
                           />
                         }
@@ -408,7 +410,7 @@ function FilterSection() {
                             icon={<Check className={classes.uncheckedIcon} />}
                             classes={{
                               checked: classes.checked,
-                              root: classes.checkRoot
+                              root: classes.checkRoot,
                             }}
                           />
                         }
@@ -426,7 +428,7 @@ function FilterSection() {
                             icon={<Check className={classes.uncheckedIcon} />}
                             classes={{
                               checked: classes.checked,
-                              root: classes.checkRoot
+                              root: classes.checkRoot,
                             }}
                           />
                         }
@@ -444,7 +446,7 @@ function FilterSection() {
                             icon={<Check className={classes.uncheckedIcon} />}
                             classes={{
                               checked: classes.checked,
-                              root: classes.checkRoot
+                              root: classes.checkRoot,
                             }}
                           />
                         }
@@ -462,7 +464,7 @@ function FilterSection() {
                             icon={<Check className={classes.uncheckedIcon} />}
                             classes={{
                               checked: classes.checked,
-                              root: classes.checkRoot
+                              root: classes.checkRoot,
                             }}
                           />
                         }
@@ -480,7 +482,7 @@ function FilterSection() {
                             icon={<Check className={classes.uncheckedIcon} />}
                             classes={{
                               checked: classes.checked,
-                              root: classes.checkRoot
+                              root: classes.checkRoot,
                             }}
                           />
                         }
@@ -498,7 +500,7 @@ function FilterSection() {
                             icon={<Check className={classes.uncheckedIcon} />}
                             classes={{
                               checked: classes.checked,
-                              root: classes.checkRoot
+                              root: classes.checkRoot,
                             }}
                           />
                         }
@@ -516,7 +518,7 @@ function FilterSection() {
                             icon={<Check className={classes.uncheckedIcon} />}
                             classes={{
                               checked: classes.checked,
-                              root: classes.checkRoot
+                              root: classes.checkRoot,
                             }}
                           />
                         }
@@ -534,7 +536,7 @@ function FilterSection() {
                             icon={<Check className={classes.uncheckedIcon} />}
                             classes={{
                               checked: classes.checked,
-                              root: classes.checkRoot
+                              root: classes.checkRoot,
                             }}
                           />
                         }
@@ -552,7 +554,7 @@ function FilterSection() {
                             icon={<Check className={classes.uncheckedIcon} />}
                             classes={{
                               checked: classes.checked,
-                              root: classes.checkRoot
+                              root: classes.checkRoot,
                             }}
                           />
                         }
@@ -570,7 +572,7 @@ function FilterSection() {
                             icon={<Check className={classes.uncheckedIcon} />}
                             classes={{
                               checked: classes.checked,
-                              root: classes.checkRoot
+                              root: classes.checkRoot,
                             }}
                           />
                         }
@@ -588,7 +590,7 @@ function FilterSection() {
                             icon={<Check className={classes.uncheckedIcon} />}
                             classes={{
                               checked: classes.checked,
-                              root: classes.checkRoot
+                              root: classes.checkRoot,
                             }}
                           />
                         }
@@ -597,7 +599,7 @@ function FilterSection() {
                       />
                     </div>
                   </div>
-                )
+                ),
               },
               {
                 title: "Colour",
@@ -622,7 +624,7 @@ function FilterSection() {
                             icon={<Check className={classes.uncheckedIcon} />}
                             classes={{
                               checked: classes.checked,
-                              root: classes.checkRoot
+                              root: classes.checkRoot,
                             }}
                           />
                         }
@@ -640,7 +642,7 @@ function FilterSection() {
                             icon={<Check className={classes.uncheckedIcon} />}
                             classes={{
                               checked: classes.checked,
-                              root: classes.checkRoot
+                              root: classes.checkRoot,
                             }}
                           />
                         }
@@ -658,7 +660,7 @@ function FilterSection() {
                             icon={<Check className={classes.uncheckedIcon} />}
                             classes={{
                               checked: classes.checked,
-                              root: classes.checkRoot
+                              root: classes.checkRoot,
                             }}
                           />
                         }
@@ -676,7 +678,7 @@ function FilterSection() {
                             icon={<Check className={classes.uncheckedIcon} />}
                             classes={{
                               checked: classes.checked,
-                              root: classes.checkRoot
+                              root: classes.checkRoot,
                             }}
                           />
                         }
@@ -694,7 +696,7 @@ function FilterSection() {
                             icon={<Check className={classes.uncheckedIcon} />}
                             classes={{
                               checked: classes.checked,
-                              root: classes.checkRoot
+                              root: classes.checkRoot,
                             }}
                           />
                         }
@@ -712,7 +714,7 @@ function FilterSection() {
                             icon={<Check className={classes.uncheckedIcon} />}
                             classes={{
                               checked: classes.checked,
-                              root: classes.checkRoot
+                              root: classes.checkRoot,
                             }}
                           />
                         }
@@ -730,7 +732,7 @@ function FilterSection() {
                             icon={<Check className={classes.uncheckedIcon} />}
                             classes={{
                               checked: classes.checked,
-                              root: classes.checkRoot
+                              root: classes.checkRoot,
                             }}
                           />
                         }
@@ -748,7 +750,7 @@ function FilterSection() {
                             icon={<Check className={classes.uncheckedIcon} />}
                             classes={{
                               checked: classes.checked,
-                              root: classes.checkRoot
+                              root: classes.checkRoot,
                             }}
                           />
                         }
@@ -757,8 +759,8 @@ function FilterSection() {
                       />
                     </div>
                   </div>
-                )
-              }
+                ),
+              },
             ]}
           />
         </CardBody>

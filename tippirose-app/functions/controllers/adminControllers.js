@@ -13,7 +13,7 @@ exports.postAddProduct = async (req, res, next) => {
       .doc(product.category)
       .collection("products")
       .add(product)
-      .then(async docRef => {
+      .then(async (docRef) => {
         console.log("Written: ", docRef.id);
 
         //SAVING ARRAY OF IMAGES
@@ -22,7 +22,7 @@ exports.postAddProduct = async (req, res, next) => {
           const image = images[i];
           const path = `products/${docRef.id}/product-images`;
           const options = {
-            name: product.productName + "-" + images[i].id
+            name: product.productName + "-" + images[i].id,
           };
 
           let UploadedFile = firebase.uploadFile(
@@ -42,7 +42,7 @@ exports.postAddProduct = async (req, res, next) => {
             .collection("photos")
             .add({
               name: product.productName + "-" + images[i].id,
-              url: downloadURL
+              url: downloadURL,
             });
 
           imageUrls.push(downloadURL);
@@ -61,7 +61,7 @@ exports.postAddProduct = async (req, res, next) => {
             .update({
               id: docRef.id,
               mainImageUrl: imageUrls && imageUrls[0],
-              mainImageName: images && product.productName + "-" + images[0].id
+              mainImageName: images && product.productName + "-" + images[0].id,
             });
         } else {
           await firebase
@@ -71,13 +71,13 @@ exports.postAddProduct = async (req, res, next) => {
             .collection("products")
             .doc(docRef.id)
             .update({
-              id: docRef.id
+              id: docRef.id,
             });
         }
 
         return;
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
         return;
       });
@@ -97,7 +97,7 @@ exports.postAddProduct = async (req, res, next) => {
         const path = `products/${initialValues.id}/product-images`;
         console.log("path", path);
         const options = {
-          name: product.productName + "-" + images[i].id
+          name: product.productName + "-" + images[i].id,
         };
 
         let UploadedFile = firebase.storage.uploadFile(
@@ -117,7 +117,7 @@ exports.postAddProduct = async (req, res, next) => {
           .collection("photos")
           .add({
             name: product.productName + "-" + images[i].id,
-            url: downloadURL
+            url: downloadURL,
           });
       }
 
@@ -169,9 +169,26 @@ exports.postGetProductImages = async (req, res, next) => {
       original: productImage.url,
       thumbnail: productImage.url,
       color: productImage.color,
-      pattern: productImage.pattern
+      pattern: productImage.pattern,
     });
   }
 
   res.send(imagesCollection);
+};
+
+//GETTING ALL ORDERS
+
+exports.getOrders = async (req, res, next) => {
+  const allOrders = await firebase
+    .firestore()
+    .collection("products")
+    .doc(category)
+    .collection("products")
+    .doc(productID)
+    .collection("photos")
+    .orderBy("name")
+    .get();
+
+  res.send("all orders");
+  console.log("all orders");
 };

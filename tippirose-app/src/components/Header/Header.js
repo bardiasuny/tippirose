@@ -64,9 +64,9 @@ export default function Header(props) {
     [classes.fixed]: fixed
   });
   return (
-    <AppBar className={appBarClasses}>
+    <AppBar style={{backgroundColor: "blue!important"}} >
       <Toolbar className={classes.container}>
-        <Button style={{color: "white"}}>
+        <Button  >
           <Link to="/" style={{color: "white", fontSize: 20}}>{brand}</Link>
         </Button>
         <Hidden smDown implementation="css" className={classes.hidden}>

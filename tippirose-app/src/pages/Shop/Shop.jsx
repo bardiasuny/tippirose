@@ -6,6 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import ModernContainer from "../../components/ModernContainer/ModernContainer";
 import NavBar from "../../components/Nav/MainNavBar/NavBar";
+import NavBarCostum from "../../components/Nav/MainNavBar/NavBarCostum";
 import { Route, Switch, Link } from "react-router-dom";
 
 import ProductCategory from "./ProductCategory";
@@ -17,11 +18,11 @@ import { getFavourite } from "../../features/User/userAcrions";
 import Favourites from "features/User/Favourites";
 import MainFooter from "features/Footer/MainFooter";
 
-const mapState = state => ({
-  favourites: state.firestore.ordered.favourites
+const mapState = (state) => ({
+  favourites: state.firestore.ordered.favourites,
 });
 const actions = {
-  getFavourite
+  getFavourite,
 };
 
 const style = {};
@@ -34,7 +35,7 @@ function Shop({ match, getFavourite, favourites }) {
   const classes = useStyles();
   const headerImage = require("../../assets/img/bg4.jpg");
 
-  const getPageTitle = title => {
+  const getPageTitle = (title) => {
     setPageTitle(title);
   };
 
@@ -43,11 +44,10 @@ function Shop({ match, getFavourite, favourites }) {
       await getFavourite();
     };
     getfav();
-  }, []);
+  }, [getFavourite]);
 
   return (
     <Fragment>
-      <NavBar />
       <Switch>
         <Route
           exact

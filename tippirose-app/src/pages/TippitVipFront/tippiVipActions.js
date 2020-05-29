@@ -58,6 +58,7 @@ export const activateProduct = (product, userData, user) => async (
 ) => {
     const firebase = getFirebase();
     const firestore = getFirestore();
+console.log(user);
 
     try {
         const config = {

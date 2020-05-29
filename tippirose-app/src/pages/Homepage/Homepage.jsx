@@ -15,24 +15,25 @@ import Card from "components/Card/Card";
 import CardBody from "components/Card/CardBody";
 import { Link } from "react-router-dom";
 import NavBar from "components/Nav/MainNavBar/NavBar";
+import NavBarCostum from "components/Nav/MainNavBar/NavBarCostum";
 import MainFooter from "features/Footer/MainFooter";
 
 const style = {};
 
 const useStyles = makeStyles(style);
-const image = require('../../assets/img/tippi_header.png')
+const image = require("../../assets/img/tippi_header.png");
 function Homepage() {
   const classes = useStyles();
-  const headerImage = image
-  const toast = input => {
+  const headerImage =
+    "https://cdn.designbyhumans.com/img/block/headline/1/2019/07/15/2917/background/5919353.min.jpg";
+  const toast = (input) => {
     toastr[input]("OoPS!!", "somthing went wrong, Please try again");
   };
 
   return (
     <Fragment>
-      <NavBar />
       <ModernContainer
-        title="HomePage"
+        title="TIPPIROSE"
         subTitle="Experience the awesomness"
         img={headerImage}
         height={800}

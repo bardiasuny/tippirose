@@ -11,6 +11,9 @@ import AddProduct from "./Product/AddProduct";
 import AdminDashboard from "./AdminDashboard";
 import Products from "./Product/Products";
 import PatternManager from "./PatternManager";
+import NavBarCostum from "components/Nav/MainNavBar/NavBarCostum";
+import PlainProducts from "./PlainProducts/index";
+import AddPlainProduct from "./PlainProducts/AddPlainProduct";
 const style = {};
 
 const useStyles = makeStyles(style);
@@ -20,15 +23,6 @@ export default function LoggedOutNav() {
   const headerImage = require("../../assets/img/bg2.jpg");
   return (
     <Fragment>
-      <NavBar />
-      <div
-        style={{
-          height: 100,
-          width: "100%",
-          overflow: "hidden",
-          background: "black"
-        }}
-      ></div>
       <div className="admin_layout">
         <div className="admin_sidebar_wrapper">
           <h4>Navigation</h4>
@@ -52,6 +46,20 @@ export default function LoggedOutNav() {
         <div className="admin_main_wrapper">
           <Switch>
             <Route exact path="/admin/" render={() => <AdminDashboard />} />
+            <Route
+              exact
+              path="/admin/plain-product-manager"
+              render={() => <PlainProducts />}
+            />
+            <Route
+              exact
+              path="/admin/plain-product-manager/add-product"
+              render={() => <AddPlainProduct />}
+            />
+            <Route
+              path="/admin/plain-product-manager/add-product/:id"
+              render={() => <AddPlainProduct />}
+            />
             <Route
               exact
               path="/admin/add-product"

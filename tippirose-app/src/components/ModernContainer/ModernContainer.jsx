@@ -32,7 +32,7 @@ const styles = {
     overflow: "hidden"
   },
   headerTitle: {
-    color: "white",
+    color: "Black",
     fontSize: "500%",
     fontWeight: 900
   },
@@ -88,7 +88,7 @@ export default function ModernContainer(props) {
           style={{ top: height / 2 - 50 }}
         >
           <h1 className={classes.headerTitle}>{title}</h1>
-          <h3 className="white">{subTitle} </h3>
+          <h3 className="black">{subTitle} </h3>
         </div>
       </div>
       <div className={classes.positionWrapper}>{children}</div>

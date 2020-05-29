@@ -4,7 +4,7 @@ import { SubmissionError } from "redux-form";
 import {
   asyncActionStart,
   asyncActionFinish,
-  asyncActionError
+  asyncActionError,
 } from "../../../features/async/asyncActions";
 
 import axios from "axios";
@@ -12,7 +12,7 @@ import axios from "axios";
 import {
   FETCH_PRODUCT,
   FETCH_PRODUCT_IMAGES,
-  FETCH_PRODUCT_PATTERNS
+  FETCH_PRODUCT_PATTERNS,
 } from "./productConstants";
 
 let api = "";
@@ -40,7 +40,7 @@ export const addProduct = (product, images, initialValues) => async (
         .doc(product.category)
         .collection("products")
         .add(product)
-        .then(async docRef => {
+        .then(async (docRef) => {
           console.log("Written: ", docRef.id);
 
           //SAVING ARRAY OF IMAGES
@@ -49,7 +49,7 @@ export const addProduct = (product, images, initialValues) => async (
             const image = images[i];
             const path = `products/${docRef.id}/product-images`;
             const options = {
-              name: product.productName + "-" + images[i].id
+              name: product.productName + "-" + images[i].id,
             };
 
             let UploadedFile = await firebase.uploadFile(
@@ -70,7 +70,7 @@ export const addProduct = (product, images, initialValues) => async (
               .collection("photos")
               .add({
                 name: product.productName + "-" + images[i].id,
-                url: downloadURL
+                url: downloadURL,
               });
 
             imageUrls.push(downloadURL);
@@ -90,7 +90,7 @@ export const addProduct = (product, images, initialValues) => async (
                 id: docRef.id,
                 mainImageUrl: imageUrls && imageUrls[0],
                 mainImageName:
-                  images && product.productName + "-" + images[0].id
+                  images && product.productName + "-" + images[0].id,
               });
           } else {
             await firebase
@@ -100,13 +100,13 @@ export const addProduct = (product, images, initialValues) => async (
               .collection("products")
               .doc(docRef.id)
               .update({
-                id: docRef.id
+                id: docRef.id,
               });
           }
 
           return;
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
           return;
         });
@@ -126,7 +126,7 @@ export const addProduct = (product, images, initialValues) => async (
           const path = `products/${initialValues.id}/product-images`;
           console.log("path", path);
           const options = {
-            name: product.productName + "-" + images[i].id
+            name: product.productName + "-" + images[i].id,
           };
 
           let UploadedFile = await firebase.uploadFile(
@@ -147,7 +147,7 @@ export const addProduct = (product, images, initialValues) => async (
             .collection("photos")
             .add({
               name: product.productName + "-" + images[i].id,
-              url: downloadURL
+              url: downloadURL,
             });
         }
       } catch (err) {
@@ -176,7 +176,7 @@ export const addPatternTemplate = (
     const path = `templates/${templateName}/${templateName}`;
     const pathSample = `templates/${templateName}/${templateName}-sample`;
     const options = {
-      name: templateName
+      name: templateName,
     };
 
     let UploadedFile = await firebase.uploadFile(
@@ -195,21 +195,17 @@ export const addPatternTemplate = (
     );
     let sampleImageDownloadURL = await UploadedSampleImage.uploadTaskSnapshot.ref.getDownloadURL();
 
-    await firebase
-      .firestore()
-      .collection("patterns")
-      .doc(templateName)
-      .set({
-        name: templateName,
-        url: downloadURL,
-        sampleImage: sampleImageDownloadURL
-      });
+    await firebase.firestore().collection("patterns").doc(templateName).set({
+      name: templateName,
+      url: downloadURL,
+      sampleImage: sampleImageDownloadURL,
+    });
   } catch (err) {
     console.log(err);
   }
 };
 
-export const getProduct = productID => async (
+export const getProduct = (productID) => async (
   dispatch,
   getState,
   { getFirebase, getFirestore }
@@ -252,8 +248,8 @@ export const getProductWithCat = (category, productID) => async (
         timeout: 7000,
         headers: {
           Accept: "application/json",
-          "Content-Type": "application/json;charset=UTF-8"
-        }
+          "Content-Type": "application/json;charset=UTF-8",
+        },
       };
       const body = JSON.stringify({ category, productID });
       const res = await axios.post(`${api}/admin/get-product`, body, config);
@@ -269,7 +265,7 @@ export const getProductWithCat = (category, productID) => async (
   }
 };
 
-export const getProductImages = productID => async (
+export const getProductImages = (productID) => async (
   dispatch,
   getState,
   { getFirebase, getFirestore }
@@ -291,7 +287,7 @@ export const getProductImages = productID => async (
 
       const productImages = await firebase
         .firestore()
-        .collection("products")
+        .collection("plainProducts")
         .doc(productCategory)
         .collection("products")
         .doc(productID)
@@ -303,13 +299,13 @@ export const getProductImages = productID => async (
         const productImage = productImages.docs[i].data();
         imagesCollection.push({
           ...productImage,
-          id: productImages.docs[i].id
+          id: productImages.docs[i].id,
         });
       }
 
       dispatch({
         type: FETCH_PRODUCT_IMAGES,
-        payload: { img: imagesCollection }
+        payload: { img: imagesCollection },
       });
     } else {
       dispatch({ type: FETCH_PRODUCT_IMAGES, payload: { img: [] } });
@@ -346,13 +342,13 @@ export const getProductImagesWithCat = (category, productID) => async (
           original: productImage.url,
           thumbnail: productImage.url,
           color: productImage.color,
-          pattern: productImage.pattern
+          pattern: productImage.pattern,
         });
       }
 
       dispatch({
         type: FETCH_PRODUCT_IMAGES,
-        payload: { img: imagesCollection }
+        payload: { img: imagesCollection },
       });
     } else {
       dispatch({ type: FETCH_PRODUCT_IMAGES, payload: { img: [] } });
@@ -388,7 +384,7 @@ export const getProductPatterns = () => async (
 
     dispatch({
       type: FETCH_PRODUCT_PATTERNS,
-      payload: { pattern: patternCollection }
+      payload: { pattern: patternCollection },
     });
 
     dispatch(asyncActionFinish());
@@ -452,7 +448,7 @@ export const SetMainImage = (productID, img, productCategory) => async (
       .doc(productID)
       .update({
         mainImageUrl: img.url,
-        mainImageName: img.name
+        mainImageName: img.name,
       });
   } catch (err) {
     console.log(err);
@@ -474,7 +470,7 @@ export const resetReducer = (reducerName, reducerTag) => async (
   }
 };
 
-export const getProductsCategory = productCategory => async (
+export const getProductsCategory = (productCategory) => async (
   dispatch,
   getState,
   { getFirebase, getFirestore }
@@ -488,17 +484,17 @@ export const getProductsCategory = productCategory => async (
       doc: productCategory,
       subcollections: [
         {
-          collection: "products"
-        }
+          collection: "products",
+        },
       ],
-      storeAs: productCategory
+      storeAs: productCategory,
     });
   } catch (err) {
     console.log(err);
   }
 };
 
-export const getProductsCategoryForCatPage = productCategory => async (
+export const getProductsCategoryForCatPage = (productCategory) => async (
   dispatch,
   getState,
   { getFirebase, getFirestore }
@@ -512,11 +508,11 @@ export const getProductsCategoryForCatPage = productCategory => async (
       doc: productCategory,
       subcollections: [
         {
-          collection: "products"
-        }
+          collection: "products",
+        },
       ],
       limit: 6,
-      storeAs: "products"
+      storeAs: "products",
     });
   } catch (err) {
     console.log(err);
@@ -550,7 +546,7 @@ export const assignProductColor = (initialValues, color, img) => async (
       .collection("photos")
       .doc(img.id)
       .update({
-        color: color
+        color,
       });
 
     dispatch(asyncActionFinish());
@@ -580,7 +576,7 @@ export const assignPatternToImage = (initialValues, pattern, img) => async (
       .doc(img.id)
       .set(
         {
-          pattern: pattern
+          pattern: pattern,
         },
         { merge: true }
       );
@@ -613,7 +609,7 @@ export const setProductQRCodeInImage = (
       .doc(imgId)
       .set(
         {
-          [name]: value
+          [name]: value,
         },
         { merge: true }
       );
@@ -660,7 +656,7 @@ export const addPatternToProduct = (pattern, initialValues, patterns) => async (
       .collection("products")
       .doc(initialValues.id)
       .update({
-        patterns: [...prevPattens, pattern]
+        patterns: [...prevPattens, pattern],
       });
 
     dispatch(asyncActionFinish());

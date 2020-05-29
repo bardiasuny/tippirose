@@ -13,7 +13,9 @@ function LogoNav() {
   return (
     <Fragment>
       <Link to="/">
-        <h4 style={{color: "white"}}>TIPPIROSEadf</h4>
+        <div style={{ color: "white", fontSize: "25px", fontWeight: "700" }}>
+          TIPPIROSE
+        </div>
       </Link>
     </Fragment>
   );

@@ -9,5 +9,6 @@ router.post('/get-product', adminContollers.postGetProduct)
 
 router.post('/get-product-images', adminContollers.postGetProductImages)
 
+router.post('/get-orders', adminContollers.getOrders)
 
 exports.routes = router

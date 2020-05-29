@@ -12,7 +12,7 @@ app.use(cors());
 
 
 const adminRoutes = require('./routes/adminRoutes')
-const userRoutes = require('./routes/userRouthes')
+const userRoutes = require('./routes/userRoutes')
 const vipRoutes = require('./routes/vipRoutes')
 const accountRoutes = require('./routes/accountRoutes')
 
